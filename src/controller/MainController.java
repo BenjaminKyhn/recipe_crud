@@ -65,7 +65,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void insertButton() {
-        String query = "insert into ingredients values("+idField.getText()+",'"+ nameField.getText()+"','"+ caloriesField.getText()+"',"+ proteinField.getText()+","+ fatField.getText()+")";
+        String query = "INSERT INTO ingredients values('"+idField.getText()+"','"+ nameField.getText()+"','"+ caloriesField.getText()+"','"+ proteinField.getText()+"','"+ fatField.getText()+"')";
     	executeQuery(query);
     	showIngredients();
     }

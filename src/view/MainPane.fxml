@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
       <VBox layoutX="26.0" layoutY="22.0" spacing="15.0">
          <children>
@@ -19,22 +19,22 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="Title">
+            <Label text="Name">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="Author">
+            <Label text="Calories">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="Year">
+            <Label text="Protein">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="Pages">
+            <Label text="Fat">
                <font>
                   <Font size="14.0" />
                </font>
@@ -61,10 +61,10 @@
       <TableView fx:id="TableView" layoutX="238.0" layoutY="22.0" prefHeight="210.0" prefWidth="400.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
-          <TableColumn fx:id="nameColumn" prefWidth="120.0" text="Title" />
-            <TableColumn fx:id="caloriesColumn" prefWidth="120.0" text="Author" />
-            <TableColumn fx:id="proteinColumn" prefWidth="60.0" text="Year" />
-            <TableColumn fx:id="fatColumn" prefWidth="60.0" text="Pages" />
+          <TableColumn fx:id="nameColumn" prefWidth="120.0" text="Name" />
+            <TableColumn fx:id="caloriesColumn" prefWidth="120.0" text="Calories" />
+            <TableColumn fx:id="proteinColumn" prefWidth="60.0" text="Protein" />
+            <TableColumn fx:id="fatColumn" prefWidth="60.0" text="Fat" />
         </columns>
       </TableView>
    </children>
