@@ -34,8 +34,8 @@ public class Main extends Application {
 
     public void popupStoreIngredient (javafx.event.ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/MainPane.fxml"));
-        AnchorPane root = fxmlLoader.load();
-        Scene scene = new Scene(root);
+        AnchorPane anchorPane = fxmlLoader.load();
+        Scene scene = new Scene(anchorPane);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
