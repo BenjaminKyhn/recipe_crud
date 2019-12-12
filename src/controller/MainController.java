@@ -37,6 +37,9 @@ public class MainController implements Initializable {
     private TextField fatField;
 
     @FXML
+    private TextField carbohydratesField;
+
+    @FXML
     private Button insertButton;
 
     @FXML
@@ -64,8 +67,11 @@ public class MainController implements Initializable {
     private TableColumn<Ingredient, Double> fatColumn;
 
     @FXML
+    private TableColumn<Ingredient, Double> carbohydratesColumn;
+
+    @FXML
     private void insertButton() {
-        String query = "INSERT INTO ingredients values('"+idField.getText()+"','"+ nameField.getText()+"','"+ caloriesField.getText()+"','"+ proteinField.getText()+"','"+ fatField.getText()+"')";
+        String query = "INSERT INTO ingredients values('"+idField.getText()+"','"+ nameField.getText()+"','"+ caloriesField.getText()+"','"+ proteinField.getText()+"','"+ fatField.getText()+"','"+ carbohydratesField.getText()+"')";
     	executeQuery(query);
     	showIngredients();
     }
@@ -124,7 +130,7 @@ public class MainController implements Initializable {
 			rs = st.executeQuery(query);
 			Ingredient ingredient;
 			while(rs.next()) {
-				ingredient = new Ingredient(rs.getInt("Id"),rs.getString("Name"),rs.getDouble("Calories"),rs.getDouble("Protein"),rs.getDouble("Fat"));
+				ingredient = new Ingredient(rs.getInt("Id"),rs.getString("Name"),rs.getDouble("Calories"),rs.getDouble("Protein"),rs.getDouble("Fat"),rs.getDouble("Carbohydrates"));
 				ingredientsList.add(ingredient);
 				}
 		} catch (Exception e) {
@@ -142,6 +148,7 @@ public class MainController implements Initializable {
     	caloriesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("calories"));
     	proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("protein"));
     	fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("fat"));
+        carbohydratesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("carbohydrates"));
     	
     	TableView.setItems(list);
     }

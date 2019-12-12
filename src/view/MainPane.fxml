@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <VBox layoutX="26.0" layoutY="22.0" spacing="15.0">
+      <VBox layoutX="26.0" layoutY="22.0" prefHeight="196.0" prefWidth="50.0" spacing="15.0">
          <children>
             <Label text="ID">
                <font>
@@ -39,19 +39,25 @@
                   <Font size="14.0" />
                </font>
             </Label>
+            <Label text="Carbs">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
-      <VBox layoutX="87.0" layoutY="22.0" prefHeight="130.0" prefWidth="129.0" spacing="10.0">
+      <VBox layoutX="87.0" layoutY="22.0" prefHeight="210.0" prefWidth="130.0" spacing="10.0">
          <children>
             <TextField fx:id="idField" />
             <TextField fx:id="nameField" />
             <TextField fx:id="caloriesField" />
             <TextField fx:id="proteinField" />
-            <TextField fx:id="fatField" />
+            <TextField fx:id="fatField" prefHeight="28.0" prefWidth="130.0" />
+            <TextField fx:id="carbohydratesField" prefHeight="28.0" prefWidth="130.0" />
            
          </children>
       </VBox>
-      <HBox layoutX="26.0" layoutY="202.0" spacing="10.0">
+      <HBox layoutX="26.0" layoutY="246.0" spacing="10.0">
          <children>
             <Button fx:id="insertButton" mnemonicParsing="false" onAction="#insertButton" prefHeight="30.0" prefWidth="60.0" text="Insert" />
             <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="60.0" text="Update" />
@@ -65,6 +71,7 @@
             <TableColumn fx:id="caloriesColumn" prefWidth="120.0" text="Calories" />
             <TableColumn fx:id="proteinColumn" prefWidth="60.0" text="Protein" />
             <TableColumn fx:id="fatColumn" prefWidth="60.0" text="Fat" />
+            <TableColumn fx:id="carbohydratesColumn" prefWidth="75.0" text="Carbohydrates" />
         </columns>
       </TableView>
    </children>
