@@ -79,7 +79,7 @@ public class MainController implements Initializable {
     
     @FXML 
     private void updateButton() {
-    String query = "UPDATE ingredients SET Name='"+ nameField.getText()+"',Calories='"+ caloriesField.getText()+"',Protein="+ proteinField.getText()+",Fat="+ fatField.getText()+" WHERE ID="+idField.getText()+"";
+    String query = "UPDATE ingredients SET Name='"+ nameField.getText()+"',Calories='"+ caloriesField.getText()+"',Protein='"+ proteinField.getText()+"',Fat='"+ fatField.getText()+"',Carbohydrates='"+ carbohydratesField.getText()+"' WHERE ID="+idField.getText()+"";
     executeQuery(query);
 	showIngredients();
     }
