@@ -9,7 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import library.Books;
+import persistence.Ingredient;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -25,16 +25,16 @@ public class MainController implements Initializable {
     private TextField idField;
     
     @FXML
-    private TextField titleField;
+    private TextField nameField;
 
     @FXML
-    private TextField authorField;
+    private TextField caloriesField;
 
     @FXML
-    private TextField yearField;
+    private TextField proteinField;
 
     @FXML
-    private TextField pagesField;
+    private TextField fatField;
 
     @FXML
     private Button insertButton;
@@ -46,43 +46,43 @@ public class MainController implements Initializable {
     private Button deleteButton;
 
     @FXML
-    private TableView<Books> TableView;
+    private TableView<Ingredient> TableView;
     
     @FXML
-    private TableColumn<Books, Integer> idColumn;
+    private TableColumn<Ingredient, Integer> idColumn;
     
     @FXML
-    private TableColumn<Books, String> titleColumn;
+    private TableColumn<Ingredient, String> nameColumn;
 
     @FXML
-    private TableColumn<Books, String> authorColumn;
+    private TableColumn<Ingredient, Double> caloriesColumn;
 
     @FXML
-    private TableColumn<Books, Integer> yearColumn;
+    private TableColumn<Ingredient, Double> proteinColumn;
 
     @FXML
-    private TableColumn<Books, Integer> pagesColumn;
+    private TableColumn<Ingredient, Double> fatColumn;
 
     @FXML
     private void insertButton() {
-        String query = "insert into books values("+idField.getText()+",'"+titleField.getText()+"','"+authorField.getText()+"',"+yearField.getText()+","+pagesField.getText()+")";
+        String query = "insert into ingredients values("+idField.getText()+",'"+ nameField.getText()+"','"+ caloriesField.getText()+"',"+ proteinField.getText()+","+ fatField.getText()+")";
     	executeQuery(query);
-    	showBooks();
+    	showIngredients();
     }
     
     
     @FXML 
     private void updateButton() {
-    String query = "UPDATE books SET Title='"+titleField.getText()+"',Author='"+authorField.getText()+"',Year="+yearField.getText()+",Pages="+pagesField.getText()+" WHERE ID="+idField.getText()+"";
+    String query = "UPDATE ingredients SET Name='"+ nameField.getText()+"',Calories='"+ caloriesField.getText()+"',Protein="+ proteinField.getText()+",Fat="+ fatField.getText()+" WHERE ID="+idField.getText()+"";
     executeQuery(query);
-	showBooks();
+	showIngredients();
     }
     
     @FXML
     private void deleteButton() {
-    	String query = "DELETE FROM books WHERE ID="+idField.getText()+"";
+    	String query = "DELETE FROM ingredients WHERE ID="+idField.getText()+"";
     	executeQuery(query);
-    	showBooks();
+    	showIngredients();
     }
     
     public void executeQuery(String query) {
@@ -97,13 +97,13 @@ public class MainController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	showBooks();
+    	showIngredients();
     }
     
     public Connection getConnection() {
     	Connection conn;
     	try {
-    		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root","CodeWarrior8");
+    		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/idealfood","root","CodeWarrior8");
     		return conn;
     	}
     	catch (Exception e){
@@ -112,36 +112,36 @@ public class MainController implements Initializable {
     	}
     }
     
-    public ObservableList<Books> getBooksList(){
-    	ObservableList<Books> booksList = FXCollections.observableArrayList();
+    public ObservableList<Ingredient> getIngredientsList(){
+    	ObservableList<Ingredient> ingredientsList = FXCollections.observableArrayList();
     	Connection connection = getConnection();
-    	String query = "SELECT * FROM books ";
+    	String query = "SELECT * FROM ingredients";
     	Statement st;
     	ResultSet rs;
     	
     	try {
 			st = connection.createStatement();
 			rs = st.executeQuery(query);
-			Books books;
+			Ingredient ingredient;
 			while(rs.next()) {
-				books = new Books(rs.getInt("Id"),rs.getString("Title"),rs.getString("Author"),rs.getInt("Year"),rs.getInt("Pages"));
-				booksList.add(books);
+				ingredient = new Ingredient(rs.getInt("Id"),rs.getString("Name"),rs.getDouble("Calories"),rs.getDouble("Protein"),rs.getDouble("Fat"));
+				ingredientsList.add(ingredient);
 				}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-    	return booksList;
+    	return ingredientsList;
     }
     
     // I had to change ArrayList to ObservableList I didn't find another option to do this but this works :)
-    public void showBooks() {
-    	ObservableList<Books> list = getBooksList();
+    public void showIngredients() {
+    	ObservableList<Ingredient> list = getIngredientsList();
     	
-    	idColumn.setCellValueFactory(new PropertyValueFactory<Books,Integer>("id"));
-    	titleColumn.setCellValueFactory(new PropertyValueFactory<Books,String>("title"));
-    	authorColumn.setCellValueFactory(new PropertyValueFactory<Books,String>("author"));
-    	yearColumn.setCellValueFactory(new PropertyValueFactory<Books,Integer>("year"));
-    	pagesColumn.setCellValueFactory(new PropertyValueFactory<Books,Integer>("pages"));
+    	idColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Integer>("id"));
+    	nameColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,String>("name"));
+    	caloriesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("calories"));
+    	proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("protein"));
+    	fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("fat"));
     	
     	TableView.setItems(list);
     }

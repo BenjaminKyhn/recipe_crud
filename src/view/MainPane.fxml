@@ -44,10 +44,10 @@
       <VBox layoutX="87.0" layoutY="22.0" prefHeight="130.0" prefWidth="129.0" spacing="10.0">
          <children>
             <TextField fx:id="idField" />
-            <TextField fx:id="titleField" />
-            <TextField fx:id="authorField" />
-            <TextField fx:id="yearField" />
-            <TextField fx:id="pagesField" />
+            <TextField fx:id="nameField" />
+            <TextField fx:id="caloriesField" />
+            <TextField fx:id="proteinField" />
+            <TextField fx:id="fatField" />
            
          </children>
       </VBox>
@@ -61,10 +61,10 @@
       <TableView fx:id="TableView" layoutX="238.0" layoutY="22.0" prefHeight="210.0" prefWidth="400.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
-          <TableColumn fx:id="titleColumn" prefWidth="120.0" text="Title" />
-            <TableColumn fx:id="authorColumn" prefWidth="120.0" text="Author" />
-            <TableColumn fx:id="yearColumn" prefWidth="60.0" text="Year" />
-            <TableColumn fx:id="pagesColumn" prefWidth="60.0" text="Pages" />
+          <TableColumn fx:id="nameColumn" prefWidth="120.0" text="Title" />
+            <TableColumn fx:id="caloriesColumn" prefWidth="120.0" text="Author" />
+            <TableColumn fx:id="proteinColumn" prefWidth="60.0" text="Year" />
+            <TableColumn fx:id="fatColumn" prefWidth="60.0" text="Pages" />
         </columns>
       </TableView>
    </children>
