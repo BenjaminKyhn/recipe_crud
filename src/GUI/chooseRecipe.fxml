@@ -14,7 +14,7 @@
         <Scene>
             <AnchorPane prefHeight="435.0" prefWidth="278.0">
             <children>
-               <Button fx:id="findRecipeButton1" layoutX="174.0" layoutY="369.0" mnemonicParsing="false" onAction="#changeSceneCloseChooseIngredientsPopup" text="BACK">
+               <Button fx:id="backButton" layoutX="174.0" layoutY="369.0" mnemonicParsing="false" text="BACK">
                   <font>
                      <Font size="14.0" />
                   </font>
@@ -24,7 +24,7 @@
                      <Font size="18.0" />
                   </font>
                </Text>
-               <Button fx:id="findRecipeButton" layoutX="50.0" layoutY="369.0" mnemonicParsing="false" onAction="#changeSceneCloseChooseIngredientsPopup" text="SELECT RECIPE">
+               <Button fx:id="findRecipeButton" layoutX="50.0" layoutY="369.0" mnemonicParsing="false" text="SELECT RECIPE">
                   <font>
                      <Font size="14.0" />
                   </font>
