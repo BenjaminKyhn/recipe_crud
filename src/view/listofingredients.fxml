@@ -60,7 +60,6 @@
       <HBox layoutX="26.0" layoutY="246.0" spacing="10.0">
          <children>
             <Button fx:id="insertButton" mnemonicParsing="false" onAction="#insertButton" prefHeight="30.0" prefWidth="60.0" text="Insert" />
-            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="60.0" text="Update" />
             <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="60.0" text="Delete" />
          </children>
       </HBox>
@@ -74,5 +73,6 @@
             <TableColumn fx:id="carbohydratesColumn" prefWidth="75.0" text="Carbohydrates" />
         </columns>
       </TableView>
+      <Button fx:id="closeButton" layoutX="165.0" layoutY="246.0" mnemonicParsing="false" onAction="#closeButton" prefHeight="30.0" prefWidth="60.0" text="Close" />
    </children>
 </AnchorPane>

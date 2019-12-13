@@ -38,8 +38,9 @@ public class Main extends Application {
         stage.show();
     }
 
-    public void closeStoreIngredientsPopup() {
-        Stage stage = (Stage) storeIngredientButton.getScene().getWindow();
-        stage.close();
-    }
+//    Denne metode hører til en fxml, som pt. ikke bruges
+//    public void closeStoreIngredientsPopup() {
+//        Stage stage = (Stage) storeIngredientButton.getScene().getWindow();
+//        stage.close();
+//    }
 }
