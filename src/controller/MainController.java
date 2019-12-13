@@ -138,8 +138,7 @@ public class MainController implements Initializable {
 		}
     	return ingredientsList;
     }
-    
-    // I had to change ArrayList to ObservableList I didn't find another option to do this but this works :)
+
     public void showIngredients() {
     	ObservableList<Ingredient> list = getIngredientsList();
     	
