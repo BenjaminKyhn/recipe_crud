@@ -1,9 +1,8 @@
-package application;
+package GUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -12,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Stage root = FXMLLoader.load(getClass().getResource("/view/start.fxml"));
+        Stage root = FXMLLoader.load(getClass().getResource("/GUI/start.fxml"));
         root.show();
 
     }
@@ -23,14 +22,14 @@ public class Main extends Application {
 
 
     public void popupChooseIngredients (javafx.event.ActionEvent actionEvent) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/chooseIngredients.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
         Stage root = fxmlLoader.load();
         root.show();
 
     }
 
     public void popupStoreIngredient (javafx.event.ActionEvent actionEvent) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/listofingredients.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/listofingredients.fxml"));
         AnchorPane anchorPane = fxmlLoader.load();
         Scene scene = new Scene(anchorPane);
         Stage stage = new Stage();

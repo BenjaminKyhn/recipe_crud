@@ -1,4 +1,4 @@
-package controller;
+package Logic;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,7 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import persistence.Ingredient;
+import Persistence.Ingredient;
 
 import java.net.URL;
 import java.sql.Connection;

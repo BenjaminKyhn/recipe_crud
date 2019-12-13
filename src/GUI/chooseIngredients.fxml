@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<Stage title="Choose Ingredients" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<Stage title="Choose Ingredients" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.MainController">
     <scene>
         <Scene>
             <AnchorPane prefHeight="435.0" prefWidth="278.0">
@@ -19,7 +19,7 @@
                      <Font size="18.0" />
                   </font>
                </Text>
-               <Button fx:id="findRecipeButton" layoutX="86.0" layoutY="370.0" mnemonicParsing="false" onAction="#changeSceneCloseChooseIngredientsPopup" text="FIND RECIPES">
+               <Button fx:id="findRecipeButton" layoutX="50.0" layoutY="369.0" mnemonicParsing="false" onAction="#changeSceneCloseChooseIngredientsPopup" text="FIND RECIPES">
                   <font>
                      <Font size="14.0" />
                   </font>
@@ -34,7 +34,11 @@
                      <TableColumn fx:id="carbohydratesColumn" prefWidth="75.0" text="Carbohydrates" />
                  </columns>
                </TableView>
-               <Button fx:id="closeButton" layoutX="207.0" layoutY="372.0" mnemonicParsing="false" onAction="#closePopUpChooseIngredient" text="Close" />
+               <Button fx:id="closeButton" layoutX="170.0" layoutY="369.0" mnemonicParsing="false" onAction="#closePopUpChooseIngredient" text="CLOSE">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Button>
             </children></AnchorPane>
         </Scene>
     </scene>
