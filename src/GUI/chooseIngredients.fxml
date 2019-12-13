@@ -32,6 +32,7 @@
                      <TableColumn fx:id="proteinColumn" prefWidth="39.199951171875" text="Protein" />
                      <TableColumn fx:id="fatColumn" prefWidth="31.199951171875" text="Fat" />
                      <TableColumn fx:id="carbohydratesColumn" prefWidth="75.0" text="Carbohydrates" />
+                     <TableColumn fx:id="selectColumn" prefWidth="75.0" text="select" />
                  </columns>
                </TableView>
                <Button fx:id="closeButton" layoutX="170.0" layoutY="369.0" mnemonicParsing="false" onAction="#closePopUpChooseIngredient" text="CLOSE">

@@ -1,5 +1,7 @@
 package Persistence;
 
+import javafx.scene.control.CheckBox;
+
 public class Ingredient {
     private int id;
     private String name = "";
@@ -9,6 +11,7 @@ public class Ingredient {
     private double protein = 0.0;
     private double fat = 0.0;
     private double carbohydrates = 0.0;
+    private CheckBox select;
 
     public Ingredient() {
     }
@@ -28,6 +31,7 @@ public class Ingredient {
         this.protein = protein;
         this.fat = fat;
         this.carbohydrates = carbohydrates;
+        this.select = new CheckBox();
     }
 
     public void specifyIngredient(String name) {
@@ -69,5 +73,13 @@ public class Ingredient {
 
     public double getCarbohydrates() {
         return carbohydrates;
+    }
+
+    public CheckBox getSelect() {
+        return select;
+    }
+
+    public void setSelect(CheckBox select) {
+        this.select = select;
     }
 }

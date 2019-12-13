@@ -71,6 +71,7 @@
             <TableColumn fx:id="proteinColumn" prefWidth="60.0" text="Protein" />
             <TableColumn fx:id="fatColumn" prefWidth="60.0" text="Fat" />
             <TableColumn fx:id="carbohydratesColumn" prefWidth="75.0" text="Carbohydrates" />
+            <TableColumn fx:id="selectColumn" prefWidth="75.0" text="select" />
         </columns>
       </TableView>
       <Button fx:id="closeButton" layoutX="165.0" layoutY="246.0" mnemonicParsing="false" onAction="#closeButton" prefHeight="30.0" prefWidth="60.0" text="Close" />

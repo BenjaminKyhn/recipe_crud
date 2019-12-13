@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import Persistence.Ingredient;
@@ -64,6 +61,9 @@ public class MainController implements Initializable {
 
     @FXML
     private TableColumn<Ingredient, Double> carbohydratesColumn;
+
+    @FXML
+    private TableColumn<CheckBox, Boolean> selectColumn;
 
     @FXML
     private void insertButton() {
@@ -143,6 +143,7 @@ public class MainController implements Initializable {
     	proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("protein"));
     	fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("fat"));
         carbohydratesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("carbohydrates"));
+        selectColumn.setCellValueFactory(new PropertyValueFactory<CheckBox, Boolean>("select"));
     	
     	TableView.setItems(list);
     }
