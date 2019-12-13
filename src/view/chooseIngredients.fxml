@@ -12,7 +12,7 @@
 <Stage title="Choose Ingredients" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
     <scene>
         <Scene>
-            <AnchorPane prefHeight="435.0" prefWidth="278.0">
+            <AnchorPane prefHeight="431.0" prefWidth="484.0">
             <children>
                <Text layoutX="56.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHOOSE YOUR INGREDIENTS" textAlignment="CENTER" wrappingWidth="166.9366455078125">
                   <font>
@@ -24,14 +24,15 @@
                      <Font size="14.0" />
                   </font>
                </Button>
-               <TableView fx:id="TableView" layoutX="17.0" layoutY="86.0" prefHeight="275.0" prefWidth="246.0">
+               <TableView fx:id="TableView" layoutX="17.0" layoutY="79.0" prefHeight="282.0" prefWidth="455.0">
                  <columns>
                      <TableColumn fx:id="idColumn" prefWidth="35.20001220703125" text="ID" />
                    <TableColumn fx:id="nameColumn" prefWidth="43.999996185302734" text="Name" />
                      <TableColumn fx:id="caloriesColumn" prefWidth="52.0001220703125" text="Calories" />
                      <TableColumn fx:id="proteinColumn" prefWidth="39.199951171875" text="Protein" />
                      <TableColumn fx:id="fatColumn" prefWidth="31.199951171875" text="Fat" />
-                     <TableColumn fx:id="carbohydratesColumn" prefWidth="75.0" text="Carbohydrates" />
+                     <TableColumn fx:id="carbohydratesColumn" prefWidth="142.5" text="Carbohydrates" />
+                     <TableColumn fx:id="selectColumn" prefWidth="108.5" text="Select" />
                  </columns>
                </TableView>
                <Button fx:id="closeButton" layoutX="207.0" layoutY="372.0" mnemonicParsing="false" onAction="#closePopUpChooseIngredient" text="Close" />

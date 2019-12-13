@@ -66,11 +66,12 @@
       <TableView fx:id="TableView" layoutX="238.0" layoutY="22.0" prefHeight="210.0" prefWidth="400.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
-          <TableColumn fx:id="nameColumn" prefWidth="120.0" text="Name" />
-            <TableColumn fx:id="caloriesColumn" prefWidth="120.0" text="Calories" />
+          <TableColumn fx:id="nameColumn" prefWidth="58.5" text="Name" />
+            <TableColumn fx:id="caloriesColumn" prefWidth="55.5" text="Calories" />
             <TableColumn fx:id="proteinColumn" prefWidth="60.0" text="Protein" />
-            <TableColumn fx:id="fatColumn" prefWidth="60.0" text="Fat" />
-            <TableColumn fx:id="carbohydratesColumn" prefWidth="75.0" text="Carbohydrates" />
+            <TableColumn fx:id="fatColumn" minWidth="0.0" prefWidth="42.5" text="Fat" />
+            <TableColumn fx:id="carbohydratesColumn" minWidth="0.0" prefWidth="79.5" text="Carbohydrates" />
+            <TableColumn fx:id="selectColumn" prefWidth="68.0" text="select" />
         </columns>
       </TableView>
       <Button fx:id="closeButton" layoutX="165.0" layoutY="246.0" mnemonicParsing="false" onAction="#closeButton" prefHeight="30.0" prefWidth="60.0" text="Close" />

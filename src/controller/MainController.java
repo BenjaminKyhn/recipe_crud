@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import persistence.Ingredient;
@@ -75,6 +72,10 @@ public class MainController implements Initializable {
     private TableColumn<Ingredient, Double> carbohydratesColumn;
 
     @FXML
+    private TableColumn<CheckBox, Boolean> selectColumn;
+
+
+    @FXML
     private void insertButton() {
         String query = "INSERT INTO ingredients values('"+idField.getText()+"','"+ nameField.getText()+"','"+ caloriesField.getText()+"','"+ proteinField.getText()+"','"+ fatField.getText()+"','"+ carbohydratesField.getText()+"')";
     	executeQuery(query);
@@ -113,7 +114,7 @@ public class MainController implements Initializable {
     public Connection getConnection() {
     	Connection conn;
     	try {
-    		conn = DriverManager.getConnection("jdbc:mysql://localhost/idealfood?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "CodeWarrior8");
+    		conn = DriverManager.getConnection("jdbc:mysql://localhost/idealfood?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "tpw63tty");
     		return conn;
     	}
     	catch (Exception e){
@@ -152,6 +153,7 @@ public class MainController implements Initializable {
     	proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("protein"));
     	fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("fat"));
         carbohydratesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("carbohydrates"));
+        selectColumn.setCellValueFactory(new PropertyValueFactory<CheckBox, Boolean>("select"));
     	
     	TableView.setItems(list);
     }
