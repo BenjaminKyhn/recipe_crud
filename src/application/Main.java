@@ -8,7 +8,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    public Button findRecipiesButton;
     public Button storeIngredientButton;
 
     @Override
@@ -41,11 +40,6 @@ public class Main extends Application {
 
     public void closeStoreIngredientsPopup() {
         Stage stage = (Stage) storeIngredientButton.getScene().getWindow();
-        stage.close();
-    }
-
-    public void changeSceneCloseChooseIngredientsPopup() {
-        Stage stage = (Stage) findRecipiesButton.getScene().getWindow();
         stage.close();
     }
 }

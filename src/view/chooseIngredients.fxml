@@ -19,7 +19,7 @@
                      <Font size="18.0" />
                   </font>
                </Text>
-               <Button layoutX="86.0" layoutY="370.0" mnemonicParsing="false" text="FIND RECIPES">
+               <Button fx:id="findRecipeButton" layoutX="86.0" layoutY="370.0" mnemonicParsing="false" onAction="#changeSceneCloseChooseIngredientsPopup" text="FIND RECIPES">
                   <font>
                      <Font size="14.0" />
                   </font>
@@ -34,7 +34,7 @@
                      <TableColumn fx:id="carbohydratesColumn" prefWidth="75.0" text="Carbohydrates" />
                  </columns>
                </TableView>
-               <Button layoutX="207.0" layoutY="372.0" mnemonicParsing="false" text="Update" />
+               <Button fx:id="closeButton" layoutX="207.0" layoutY="372.0" mnemonicParsing="false" onAction="#closePopup" text="Close" />
             </children></AnchorPane>
         </Scene>
     </scene>

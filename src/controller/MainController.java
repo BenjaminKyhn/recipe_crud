@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import persistence.Ingredient;
 
 import java.net.URL;
@@ -20,6 +21,10 @@ import java.util.ResourceBundle;
 
 
 public class MainController implements Initializable {
+    public Button findRecipesButton;
+
+    @FXML
+    private javafx.scene.control.Button closeButton;
 
     @FXML
     private TextField idField;
@@ -152,4 +157,15 @@ public class MainController implements Initializable {
     	TableView.setItems(list);
     }
 
+    public void changeSceneCloseChooseIngredientsPopup() {
+        Stage stage = (Stage) findRecipesButton.getScene().getWindow();
+        stage.close();
+    }
+
+    public void closePopup() {
+        // get a handle to the stage
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
 }
