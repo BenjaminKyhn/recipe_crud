@@ -17,7 +17,7 @@
             <children>
                <ImageView fitHeight="236.0" fitWidth="425.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="https://i.imgur.com/qYYV3t8.jpg" />
+                     <Image url="https://i.imgur.com/KfSdfwo.jpg" />
                   </image>
                </ImageView>
                <Text layoutX="72.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Ingredients to your fridge" underline="true">

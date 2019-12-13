@@ -18,12 +18,12 @@
             <children>
                <ImageView fitHeight="280.0" fitWidth="492.0" layoutX="-137.0" layoutY="-5.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="https://i.imgur.com/qYYV3t8.jpg" />
+                     <Image url="https://i.imgur.com/KfSdfwo.jpg" />
                   </image>
                </ImageView>
                <ImageView fitHeight="285.0" fitWidth="499.0" layoutX="-144.0" layoutY="267.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="https://i.imgur.com/qYYV3t8.jpg" />
+                     <Image url="https://i.imgur.com/KfSdfwo.jpg" />
                   </image>
                </ImageView>
                <Text fontSmoothingType="LCD" layoutX="36.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHOOSE YOUR INGREDIENTS" textAlignment="CENTER" underline="true" wrappingWidth="280.53662109375">
