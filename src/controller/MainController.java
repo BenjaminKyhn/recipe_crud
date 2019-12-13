@@ -45,15 +45,6 @@ public class MainController implements Initializable {
     private TextField carbohydratesField;
 
     @FXML
-    private Button insertButton;
-
-    @FXML
-    private Button updateButton;
-
-    @FXML
-    private Button deleteButton;
-
-    @FXML
     private TableView<Ingredient> TableView;
     
     @FXML

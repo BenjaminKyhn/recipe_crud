@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    public Button storeIngredientButton;
+//    public Button storeIngredientButton;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
