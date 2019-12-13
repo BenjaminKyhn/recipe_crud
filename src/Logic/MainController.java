@@ -71,8 +71,7 @@ public class MainController implements Initializable {
     	executeQuery(query);
     	showIngredients();
     }
-    
-    
+
     @FXML 
     private void closeButton() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
