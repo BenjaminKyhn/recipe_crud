@@ -34,7 +34,7 @@
                      <TableColumn fx:id="carbohydratesColumn" prefWidth="75.0" text="Carbohydrates" />
                  </columns>
                </TableView>
-               <Button fx:id="closeButton" layoutX="207.0" layoutY="372.0" mnemonicParsing="false" onAction="#closePopup" text="Close" />
+               <Button fx:id="closeButton" layoutX="207.0" layoutY="372.0" mnemonicParsing="false" onAction="#closePopUpChooseIngredient" text="Close" />
             </children></AnchorPane>
         </Scene>
     </scene>

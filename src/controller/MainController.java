@@ -162,10 +162,8 @@ public class MainController implements Initializable {
         stage.close();
     }
 
-    public void closePopup() {
-        // get a handle to the stage
+    public void closePopUpChooseIngredient() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
-        // do what you have to do
         stage.close();
     }
 }
