@@ -13,7 +13,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Stage root = FXMLLoader.load(getClass().getResource("/GUI/start.fxml"));
         root.show();
-
     }
 
     public static void main(String[] args) {
@@ -25,7 +24,6 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
         Stage root = fxmlLoader.load();
         root.show();
-
     }
 
     public void popupStoreIngredient (javafx.event.ActionEvent actionEvent) throws Exception {
