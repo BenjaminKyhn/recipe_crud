@@ -13,24 +13,24 @@
         <Scene>
             <AnchorPane prefHeight="546.0" prefWidth="822.0">
             <children>
-               <ImageView fitHeight="580.0" fitWidth="850.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="594.0" fitWidth="1056.0" layoutX="-206.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="https://cdn.shopify.com/s/files/1/1595/7397/products/2414_Fresh_Mixed_Fruits_1500_Pc_Jigsaw_Puzzle_by_Colorlux_1800x.jpg?v=1551122385" />
+                     <Image url="https://i.imgur.com/qYYV3t8.jpg" />
                   </image>
                </ImageView>
-                <ImageView fitHeight="416.0" fitWidth="819.0" layoutX="3.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="420.0" fitWidth="825.0" layoutX="13.0" layoutY="-35.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="https://i.imgur.com/KGyHPQg.png" />
                     </image>
                 </ImageView>
-               <Button fx:id="storeIngredient" layoutX="321.0" layoutY="507.0" mnemonicParsing="false" onAction="#popupStoreIngredient" prefHeight="70.0" prefWidth="182.0" text="STORE INGREDIENT">
+               <Button fx:id="storeIngredient" layoutX="482.0" layoutY="508.0" mnemonicParsing="false" onAction="#popupStoreIngredient" prefHeight="63.0" prefWidth="238.0" text="STORE INGREDIENT">
                   <font>
-                     <Font size="16.0" />
+                     <Font name="Calibri Bold" size="22.0" />
                   </font>
                </Button>
-               <Button fx:id="findRecipeButton" alignment="CENTER" layoutX="295.0" layoutY="98.0" mnemonicParsing="false" onAction="#popupChooseIngredients" prefHeight="61.0" prefWidth="226.0" text="FIND RECIPE" textAlignment="CENTER">
+               <Button fx:id="findRecipeButton" alignment="CENTER" layoutX="128.0" layoutY="508.0" mnemonicParsing="false" onAction="#popupChooseIngredients" prefHeight="64.0" prefWidth="238.0" text="FIND RECIPE" textAlignment="CENTER">
                   <font>
-                     <Font name="System Bold" size="18.0" />
+                     <Font name="Calibri Bold" size="22.0" />
                   </font>
                </Button>
             </children></AnchorPane>
