@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListOfIngredientsController">
    <children>
       <ImageView fitHeight="427.0" fitWidth="963.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
@@ -67,8 +72,8 @@
             <TableColumn fx:id="caloriesColumn" text="Calories" />
             <TableColumn fx:id="proteinColumn" prefWidth="85.5999755859375" text="Protein" />
             <TableColumn fx:id="fatColumn" prefWidth="48.79998779296875" text="Fat" />
-            <TableColumn fx:id="carbohydratesColumn" prefWidth="72.79998779296875" text="Carbohydrates" />
-            <TableColumn fx:id="selectColumn" minWidth="2.39990234375" prefWidth="79.20001220703125" text="Select" />
+            <TableColumn fx:id="carbohydratesColumn" prefWidth="89.60003662109375" text="Carbohydrates" />
+            <TableColumn fx:id="selectColumn" minWidth="2.39990234375" prefWidth="63.199951171875" text="Select" />
         </columns>
       </TableView>
       <Button fx:id="insertButton" layoutX="21.0" layoutY="319.0" mnemonicParsing="false" onAction="#insertButton" prefHeight="30.0" prefWidth="60.0" text="Insert">

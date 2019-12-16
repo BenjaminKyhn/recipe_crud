@@ -1,50 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.Scene?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
+
 <Stage title="Choose Ingredients" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChooseIngredientsController">
     <scene>
         <Scene>
-            <AnchorPane prefHeight="548.0" prefWidth="354.0">
+            <AnchorPane prefHeight="544.0" prefWidth="414.0">
             <children>
-               <ImageView fitHeight="280.0" fitWidth="492.0" layoutX="-137.0" layoutY="-5.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="310.0" fitWidth="551.0" layoutX="-137.0" layoutY="-5.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="https://i.imgur.com/KfSdfwo.jpg" />
                   </image>
                </ImageView>
-               <ImageView fitHeight="285.0" fitWidth="499.0" layoutX="-144.0" layoutY="267.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="310.0" fitWidth="551.0" layoutX="-137.0" layoutY="267.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="https://i.imgur.com/KfSdfwo.jpg" />
                   </image>
                </ImageView>
-               <Text fontSmoothingType="LCD" layoutX="36.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHOOSE YOUR INGREDIENTS" textAlignment="CENTER" underline="true" wrappingWidth="280.53662109375">
+               <Text fontSmoothingType="LCD" layoutX="66.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHOOSE YOUR INGREDIENTS" textAlignment="CENTER" underline="true" wrappingWidth="280.53662109375">
                   <font>
                      <Font name="Calibri Bold" size="20.0" />
                   </font>
                </Text>
-               <Button layoutX="68.0" layoutY="508.0" mnemonicParsing="false" text="FIND RECIPES">
+               <Button layoutX="95.0" layoutY="521.0" mnemonicParsing="false" text="FIND RECIPES">
                   <font>
                      <Font name="Calibri Bold" size="14.0" />
                   </font>
                </Button>
-               <TableView fx:id="TableView" layoutX="17.0" layoutY="86.0" prefHeight="410.0" prefWidth="321.0">
+               <TableView fx:id="TableView" layoutX="17.0" layoutY="99.0" prefHeight="410.0" prefWidth="378.0">
                  <columns>
                      <TableColumn fx:id="idColumn" prefWidth="25.599973678588867" text="ID" />
                    <TableColumn fx:id="nameColumn" prefWidth="44.0" text="Name" />
                      <TableColumn fx:id="caloriesColumn" prefWidth="64.00000762939453" text="Calories" />
                      <TableColumn fx:id="proteinColumn" prefWidth="55.20001220703125" text="Protein" />
                      <TableColumn fx:id="fatColumn" prefWidth="30.39996337890625" text="Fat" />
-                     <TableColumn fx:id="carbohydratesColumn" minWidth="0.0" prefWidth="43.199951171875" text="Carbohydrates" />
-                     <TableColumn fx:id="selectColumn" prefWidth="72.79998779296875" text="Select" />
+                     <TableColumn fx:id="carbohydratesColumn" minWidth="0.0" prefWidth="91.20001220703125" text="Carbohydrates" />
+                     <TableColumn fx:id="selectColumn" prefWidth="66.4000244140625" text="Select" />
                  </columns>
                </TableView>
-               <Button layoutX="194.0" layoutY="508.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="CLOSE">
+               <Button layoutX="232.0" layoutY="521.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="CLOSE">
                   <font>
                      <Font name="Calibri Bold" size="14.0" />
                   </font></Button>
