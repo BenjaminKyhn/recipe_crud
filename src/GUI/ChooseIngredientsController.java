@@ -4,11 +4,14 @@ import Persistence.Ingredient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -23,7 +26,7 @@ public class ChooseIngredientsController implements Initializable{
     private Button closeButton;
 
     @FXML
-    public Button findRecipesButton;
+    public Button showRecipesButton;
 
     @FXML
     private javafx.scene.control.TableView<Ingredient> TableView;
@@ -112,13 +115,18 @@ public class ChooseIngredientsController implements Initializable{
         TableView.setItems(list);
     }
 
-    public void closePopUpChooseIngredient() {
+    @FXML
+    private void closeButton() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
-    public void changeSceneCloseChooseIngredientsPopup() {
-        Stage stage = (Stage) findRecipesButton.getScene().getWindow();
+    public void changeSceneToShowRecipes() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseRecipe.fxml"));
+        Stage showRecipe = fxmlLoader.load();
+        Stage stage = (Stage) showRecipesButton.getScene().getWindow();
         stage.close();
+        showRecipe.initModality(Modality.APPLICATION_MODAL);
+        showRecipe.show();
     }
 }

@@ -31,7 +31,7 @@
                      <Font name="Calibri Bold" size="20.0" />
                   </font>
                </Text>
-               <Button layoutX="95.0" layoutY="521.0" mnemonicParsing="false" text="FIND RECIPES">
+               <Button fx:id="showRecipesButton" layoutX="84.0" layoutY="521.0" mnemonicParsing="false" onAction="#changeSceneToShowRecipes" text="SHOW RECIPES">
                   <font>
                      <Font name="Calibri Bold" size="14.0" />
                   </font>
@@ -47,7 +47,7 @@
                      <TableColumn fx:id="selectColumn" prefWidth="66.4000244140625" text="Select" />
                  </columns>
                </TableView>
-               <Button layoutX="232.0" layoutY="521.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="CLOSE">
+               <Button fx:id="closeButton" layoutX="232.0" layoutY="521.0" mnemonicParsing="false" onAction="#closeButton" prefHeight="25.0" prefWidth="106.0" text="CLOSE">
                   <font>
                      <Font name="Calibri Bold" size="14.0" />
                   </font></Button>
