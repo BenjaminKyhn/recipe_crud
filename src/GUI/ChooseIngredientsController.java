@@ -120,7 +120,16 @@ public class ChooseIngredientsController implements Initializable{
 
     // Method for adding chosen ingredients to an arraylist
     public void chooseIngredients(){
-        chosenIngredients.add(TableView.getSelectionModel().getSelectedItem());
+        Ingredient chosenIngredient = TableView.getSelectionModel().getSelectedItem();
+
+        String qeury = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = " + chosenIngredient.getId();;
+
+//        for (int i = 0; i < chosenIngredients.size(); i++) {
+//            if(i!=0){
+//                query=query+" AND name='";
+//            }
+//            query = query + chosenIngredients.get(i).getName()+"'";
+//        }
     }
 
     @FXML
