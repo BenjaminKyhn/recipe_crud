@@ -7,7 +7,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-//    public Button storeIngredientButton;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -18,7 +17,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 
     public void popupChooseIngredients (javafx.event.ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
@@ -34,10 +32,4 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
-//    Denne metode hører til en fxml, som pt. ikke bruges
-//    public void closeStoreIngredientsPopup() {
-//        Stage stage = (Stage) storeIngredientButton.getScene().getWindow();
-//        stage.close();
-//    }
 }
