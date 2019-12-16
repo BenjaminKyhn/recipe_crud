@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -18,9 +19,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChooseIngredientsController implements Initializable{
+    public ObservableList<Ingredient> chosenIngredients = FXCollections.observableArrayList();
+
     @FXML
     private Button closeButton;
 
@@ -28,7 +32,7 @@ public class ChooseIngredientsController implements Initializable{
     public Button showRecipesButton;
 
     @FXML
-    private javafx.scene.control.TableView<Ingredient> TableView;
+    private TableView<Ingredient> TableView;
 
     @FXML
     private TableColumn<Ingredient, Integer> idColumn;
@@ -114,6 +118,11 @@ public class ChooseIngredientsController implements Initializable{
         TableView.setItems(list);
     }
 
+    // Method for adding chosen ingredients to an arraylist
+    public void chooseIngredients(){
+        chosenIngredients.add(TableView.getSelectionModel().getSelectedItem());
+    }
+
     @FXML
     private void closeButton() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
@@ -121,6 +130,7 @@ public class ChooseIngredientsController implements Initializable{
     }
 
     public void changeSceneToShowRecipes() throws Exception {
+        chooseIngredients();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseRecipe.fxml"));
         Stage showRecipe = fxmlLoader.load();
         Stage stage = (Stage) showRecipesButton.getScene().getWindow();
