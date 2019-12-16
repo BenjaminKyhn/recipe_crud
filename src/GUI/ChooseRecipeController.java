@@ -22,8 +22,6 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class ChooseRecipeController implements Initializable {
-    @FXML
-    private Button closeButton;
 
     @FXML
     private javafx.scene.control.TableView<Recipe> TableView;
@@ -79,9 +77,10 @@ public class ChooseRecipeController implements Initializable {
     }
 
     public ObservableList<Recipe> getRecipesList(){
+        ChooseIngredientsController chooseIngredientsController = new ChooseIngredientsController();
         ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
         Connection connection = getConnection();
-        String query = "SELECT id, name FROM recipes";
+        String query = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = 1";
         Statement st;
         ResultSet rs;
 

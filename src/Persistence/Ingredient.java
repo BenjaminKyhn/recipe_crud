@@ -82,4 +82,9 @@ public class Ingredient {
     public void setSelect(CheckBox select) {
         
     }
+
+    @Override
+    public String toString() {
+        return Integer.toString(id);
+    }
 }
