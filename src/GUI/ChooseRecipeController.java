@@ -5,11 +5,14 @@ import Persistence.Recipe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -103,5 +106,14 @@ public class ChooseRecipeController implements Initializable {
         nameColumn.setCellValueFactory(new PropertyValueFactory<Recipe,String>("name"));
 
         TableView.setItems(list);
+    }
+
+    public void backButton() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
+        Stage showIngredients = fxmlLoader.load();
+        Stage stage = (Stage) showIngredients.getScene().getWindow();
+        stage.close();
+        showIngredients.initModality(Modality.APPLICATION_MODAL);
+        showIngredients.show();
     }
 }
