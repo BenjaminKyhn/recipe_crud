@@ -11,6 +11,11 @@ public class Recipe {
 
     public Recipe(){}
 
+    public Recipe(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
+
     public Recipe(int id, String name, ArrayList<Ingredient> ingredients){};
 
     public int getId() {

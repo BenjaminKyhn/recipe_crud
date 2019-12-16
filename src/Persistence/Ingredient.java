@@ -80,6 +80,6 @@ public class Ingredient {
     }
 
     public void setSelect(CheckBox select) {
-        this.select = select;
+        
     }
 }
