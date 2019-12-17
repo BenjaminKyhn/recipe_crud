@@ -100,8 +100,6 @@ public class ListOfIngredientsController implements Initializable {
         showIngredients();
     }
 
-
-
     public void showIngredients() {
         ObservableList<Ingredient> list = dbController.getIngredientsList();
 

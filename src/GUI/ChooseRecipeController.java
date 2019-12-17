@@ -3,7 +3,6 @@ package GUI;
 import Persistence.DBController;
 import Persistence.Ingredient;
 import Persistence.Recipe;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,10 +15,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class ChooseRecipeController implements Initializable {
@@ -76,5 +71,4 @@ public class ChooseRecipeController implements Initializable {
         showIngredients.initModality(Modality.APPLICATION_MODAL);
         showIngredients.show();
     }
-
 }

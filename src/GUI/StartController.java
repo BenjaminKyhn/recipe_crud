@@ -9,13 +9,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class StartController {
-    public Button findRecipesButton;
-
-    /*public void changeSceneCloseChooseIngredientsPopup() {
-        Stage stage = (Stage) findRecipesButton.getScene().getWindow();
-        stage.close();
-    }*/
-
     public void popupChooseIngredients (javafx.event.ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
         Stage popUp = fxmlLoader.load();

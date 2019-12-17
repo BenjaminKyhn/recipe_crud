@@ -20,11 +20,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChooseIngredientsController implements Initializable{
-    public ObservableList<Ingredient> chosenIngredients = FXCollections.observableArrayList();
-    Ingredient chosenIngredient;
     ObservableList<Ingredient> list;
     static public ArrayList<Integer> selected = new ArrayList<>();
-
 
     @FXML
     private Button closeButton;
@@ -62,7 +59,6 @@ public class ChooseIngredientsController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         showIngredients();
     }
-
 
     public void showIngredients() {
         list = dbController.getIngredientsList();
