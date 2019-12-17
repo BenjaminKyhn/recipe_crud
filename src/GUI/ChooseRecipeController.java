@@ -50,47 +50,15 @@ public class ChooseRecipeController implements Initializable {
 
     DBController dbController = new DBController();
 
-    public void executeQuery(String query) {
-        Connection conn = dbController.getConnection();
-        Statement st;
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(query);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showRecipes();
     }
 
 
-    public ObservableList<Recipe> getRecipesList(){
-        ChooseIngredientsController chooseIngredientsController = new ChooseIngredientsController();
-        ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
-        Connection connection = dbController.getConnection();
-        String query = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = 1";
-        Statement st;
-        ResultSet rs;
-
-        try {
-            st = connection.createStatement();
-            rs = st.executeQuery(query);
-            Recipe recipe;
-            while(rs.next()) {
-                recipe = new Recipe(rs.getInt("Id"),rs.getString("Name"));
-                recipeList.add(recipe);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return recipeList;
-    }
 
     public void showRecipes() {
-        ObservableList<Recipe> list = getRecipesList();
+        ObservableList<Recipe> list = dbController.getRecipesList();
 
         idColumn.setCellValueFactory(new PropertyValueFactory<Recipe,Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Recipe,String>("name"));

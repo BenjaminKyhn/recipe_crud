@@ -70,8 +70,6 @@ public class ListOfIngredientsController implements Initializable {
 
     @FXML
     private void insertButton() {
-        String query = "INSERT INTO ingredients values('"+idField.getText()+"','"+ nameField.getText()+"','"+ caloriesField.getText()+"','"+ proteinField.getText()+"','"+ fatField.getText()+"','"+ carbohydratesField.getText()+"')";
-        executeQuery(query);
         showIngredients();
     }
 
@@ -103,29 +101,10 @@ public class ListOfIngredientsController implements Initializable {
         showIngredients();
     }
 
-    public ObservableList<Ingredient> getIngredientsList(){
-        ObservableList<Ingredient> ingredientsList = FXCollections.observableArrayList();
-        Connection connection = dbController.getConnection();
-        String query = "SELECT * FROM ingredients";
-        Statement st;
-        ResultSet rs;
 
-        try {
-            st = connection.createStatement();
-            rs = st.executeQuery(query);
-            Ingredient ingredient;
-            while(rs.next()) {
-                ingredient = new Ingredient(rs.getInt("Id"),rs.getString("Name"),rs.getDouble("Calories"),rs.getDouble("Protein"),rs.getDouble("Fat"),rs.getDouble("Carbohydrates"));
-                ingredientsList.add(ingredient);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return ingredientsList;
-    }
 
     public void showIngredients() {
-        ObservableList<Ingredient> list = getIngredientsList();
+        ObservableList<Ingredient> list = dbController.getIngredientsList();
 
         idColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,String>("name"));
