@@ -16,6 +16,10 @@ public class Ingredient {
     public Ingredient() {
     }
 
+    public Ingredient(int id){
+        this.id = id;
+    }
+
     public Ingredient(int id, String name, double calories, double protein, double fat){
         this.id = id;
         this.name = name;
