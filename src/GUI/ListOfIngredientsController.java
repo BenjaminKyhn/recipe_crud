@@ -60,9 +60,6 @@ public class ListOfIngredientsController implements Initializable {
     @FXML
     private TableColumn<Ingredient, Double> carbohydratesColumn;
 
-    @FXML
-    private TableColumn<Ingredient, CheckBox> selectColumn;
-
     DBController dbController = new DBController();
 
     @FXML
@@ -109,7 +106,6 @@ public class ListOfIngredientsController implements Initializable {
         proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("protein"));
         fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("fat"));
         carbohydratesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("carbohydrates"));
-        selectColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, CheckBox>("select"));
 
         TableView.setItems(list);
     }

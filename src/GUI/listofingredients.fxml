@@ -68,12 +68,11 @@
       <TableView fx:id="TableView" layoutX="240.0" layoutY="22.0" prefHeight="330.0" prefWidth="472.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
-          <TableColumn fx:id="nameColumn" prefWidth="69.5999755859375" text="Name" />
-            <TableColumn fx:id="caloriesColumn" text="Calories" />
-            <TableColumn fx:id="proteinColumn" prefWidth="85.5999755859375" text="Protein" />
-            <TableColumn fx:id="fatColumn" prefWidth="48.79998779296875" text="Fat" />
-            <TableColumn fx:id="carbohydratesColumn" prefWidth="89.60003662109375" text="Carbohydrates" />
-            <TableColumn fx:id="selectColumn" minWidth="2.39990234375" prefWidth="63.199951171875" text="Select" />
+          <TableColumn fx:id="nameColumn" prefWidth="125.60003662109375" text="Name" />
+            <TableColumn fx:id="caloriesColumn" prefWidth="83.199951171875" text="Calories" />
+            <TableColumn fx:id="proteinColumn" prefWidth="79.199951171875" text="Protein" />
+            <TableColumn fx:id="fatColumn" prefWidth="52.79998779296875" text="Fat" />
+            <TableColumn fx:id="carbohydratesColumn" prefWidth="93.60003662109375" text="Carbohydrates" />
         </columns>
       </TableView>
       <Button fx:id="insertButton" layoutX="21.0" layoutY="319.0" mnemonicParsing="false" onAction="#insertButton" prefHeight="30.0" prefWidth="60.0" text="Insert">
