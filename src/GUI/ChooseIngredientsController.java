@@ -78,13 +78,8 @@ public class ChooseIngredientsController implements Initializable{
         TableView.setItems(list);
     }
 
-    // Method for adding chosen ingredients to an arraylist
+    // Method for creating the sql qeury
     public String chooseIngredients(){
-//        Ingredient chosenIngredient2 = getIngredientsList().get(0);
-//        boolean isSelected = chosenIngredient2.getSelect().isSelected();
-//        chosenIngredient = TableView.getSelectionModel().getSelectedItem();
-//
-//        String qeury = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = " + selected;
         String query = "SELECT DISTINCT r.id, r.name, count(RecipeID) AS count FROM recipes AS r join ingredientamount AS i ON r.id = i.RecipeID where i.IngredientID IN (";
 
         for (int i = 0; i < selected.size(); i++) {
@@ -113,18 +108,6 @@ public class ChooseIngredientsController implements Initializable{
 
     public void changeSceneToShowRecipes() throws Exception {
         getSelected();
-
-
-//        if (list.get(0).getSelect().isSelected()) {
-//            chosenIngredient = list.get(0);
-//        }
-//            System.out.println(chosenIngredient);
-//        chooseIngredients();
-        //        chooseIngredients();
-//        for (int i = 0; i < TableView.getItems().size(); i++) {
-//            if (TableView.getItems().get(i).getSelect())
-//                chosenIngredient = TableView.getItems.get(i);
-//        }
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseRecipe.fxml"));
         Stage showRecipe = fxmlLoader.load();
         Stage stage = (Stage) showRecipesButton.getScene().getWindow();
