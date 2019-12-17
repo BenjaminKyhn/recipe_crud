@@ -25,6 +25,7 @@ public class ChooseIngredientsController implements Initializable{
     ObservableList<Ingredient> list;
     static ArrayList<Integer> selected = new ArrayList<>();
 
+
     @FXML
     private Button closeButton;
 
@@ -102,13 +103,18 @@ public class ChooseIngredientsController implements Initializable{
         stage.close();
     }
 
-    public void changeSceneToShowRecipes() throws Exception {
-
+    public void getSelected() {
         for (int i = 0; i < list.size(); i++) {
             if (selectColumn.getCellObservableValue(i).getValue().isSelected()) {
                 selected.add(i+1);
             }
         }
+    }
+
+    public void changeSceneToShowRecipes() throws Exception {
+        getSelected();
+
+
 //        if (list.get(0).getSelect().isSelected()) {
 //            chosenIngredient = list.get(0);
 //        }
