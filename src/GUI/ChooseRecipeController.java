@@ -48,6 +48,9 @@ public class ChooseRecipeController implements Initializable {
     @FXML
     private TableColumn<Ingredient, CheckBox> selectColumn;
 
+    @FXML
+    private Button backButton;
+
     DBController dbController = new DBController();
 
     @Override
@@ -68,7 +71,7 @@ public class ChooseRecipeController implements Initializable {
         ChooseIngredientsController.selected.clear();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
         Stage showIngredients = fxmlLoader.load();
-        Stage stage = (Stage) showIngredients.getScene().getWindow();
+        Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();
         showIngredients.initModality(Modality.APPLICATION_MODAL);
         showIngredients.show();
