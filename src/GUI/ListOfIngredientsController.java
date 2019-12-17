@@ -2,7 +2,6 @@ package GUI;
 
 import Persistence.DBController;
 import Persistence.Ingredient;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,8 +14,6 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
@@ -64,7 +61,7 @@ public class ListOfIngredientsController implements Initializable {
     private TableColumn<Ingredient, Double> carbohydratesColumn;
 
     @FXML
-    private TableColumn<CheckBox, Boolean> selectColumn;
+    private TableColumn<Ingredient, CheckBox> selectColumn;
 
     DBController dbController = new DBController();
 
@@ -112,7 +109,7 @@ public class ListOfIngredientsController implements Initializable {
         proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("protein"));
         fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("fat"));
         carbohydratesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("carbohydrates"));
-        selectColumn.setCellValueFactory(new PropertyValueFactory<CheckBox, Boolean>("select"));
+        selectColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, CheckBox>("select"));
 
         TableView.setItems(list);
     }

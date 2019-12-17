@@ -16,11 +16,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChooseIngredientsController implements Initializable{
@@ -55,7 +50,7 @@ public class ChooseIngredientsController implements Initializable{
     private TableColumn<Ingredient, Double> carbohydratesColumn;
 
     @FXML
-    private TableColumn<CheckBox, Boolean> selectColumn;
+    private TableColumn<Ingredient, CheckBox> selectColumn;
 
     DBController dbController = new DBController();
 
@@ -74,18 +69,18 @@ public class ChooseIngredientsController implements Initializable{
         proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("protein"));
         fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("fat"));
         carbohydratesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("carbohydrates"));
-        selectColumn.setCellValueFactory(new PropertyValueFactory<CheckBox, Boolean>("select"));
+        selectColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, CheckBox>("select"));
 
         TableView.setItems(list);
     }
 
     // Method for adding chosen ingredients to an arraylist
-//    public String chooseIngredients(){
+    public String chooseIngredients(){
 //        Ingredient chosenIngredient2 = getIngredientsList().get(0);
 //        boolean isSelected = chosenIngredient2.getSelect().isSelected();
 //        chosenIngredient = TableView.getSelectionModel().getSelectedItem();
 //
-//        String qeury = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = " + chosenIngredient2.getId();
+        String qeury = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = 17";
 
 //        for (int i = 0; i < chosenIngredients.size(); i++) {
 //            if(i!=0){
@@ -93,8 +88,8 @@ public class ChooseIngredientsController implements Initializable{
 //            }
 //            query = query + chosenIngredients.get(i).getName()+"'";
 //        }
-//        return qeury;
-//    }
+        return qeury;
+    }
 
     @FXML
     private void closeButton() {
@@ -103,6 +98,7 @@ public class ChooseIngredientsController implements Initializable{
     }
 
     public void changeSceneToShowRecipes() throws Exception {
+        chosenIngredient = TableView.getSelectionModel().getSelectedItem();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseRecipe.fxml"));
         Stage showRecipe = fxmlLoader.load();
         Stage stage = (Stage) showRecipesButton.getScene().getWindow();
