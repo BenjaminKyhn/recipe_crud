@@ -1,5 +1,6 @@
 package GUI;
 
+import Persistence.DBController;
 import Persistence.Ingredient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,6 +66,8 @@ public class ListOfIngredientsController implements Initializable {
     @FXML
     private TableColumn<CheckBox, Boolean> selectColumn;
 
+    DBController dbController = new DBController();
+
     @FXML
     private void insertButton() {
         String query = "INSERT INTO ingredients values('"+idField.getText()+"','"+ nameField.getText()+"','"+ caloriesField.getText()+"','"+ proteinField.getText()+"','"+ fatField.getText()+"','"+ carbohydratesField.getText()+"')";
@@ -85,8 +88,9 @@ public class ListOfIngredientsController implements Initializable {
         showIngredients();
     }
 
+
     public void executeQuery(String query) {
-        Connection conn = getConnection();
+        Connection conn = dbController.getConnection();
         Statement st;
         try {
             st = conn.createStatement();
@@ -101,21 +105,10 @@ public class ListOfIngredientsController implements Initializable {
     }
 
 
-    public Connection getConnection() {
-        Connection conn;
-        try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/idealfood?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
-            return conn;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     public ObservableList<Ingredient> getIngredientsList(){
         ObservableList<Ingredient> ingredientsList = FXCollections.observableArrayList();
-        Connection connection = getConnection();
+        Connection connection = dbController.getConnection();
         String query = "SELECT * FROM ingredients";
         Statement st;
         ResultSet rs;
