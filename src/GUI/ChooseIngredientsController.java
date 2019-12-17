@@ -23,7 +23,7 @@ public class ChooseIngredientsController implements Initializable{
     public ObservableList<Ingredient> chosenIngredients = FXCollections.observableArrayList();
     Ingredient chosenIngredient;
     ObservableList<Ingredient> list;
-    static ArrayList<Integer> selected = new ArrayList<>();
+    static public ArrayList<Integer> selected = new ArrayList<>();
 
     @FXML
     private Button closeButton;
@@ -84,7 +84,7 @@ public class ChooseIngredientsController implements Initializable{
 //        chosenIngredient = TableView.getSelectionModel().getSelectedItem();
 //
 //        String qeury = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = " + selected;
-        String query = "SELECT DISTINCT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID IN (";
+        String query = "SELECT DISTINCT r.id, r.name, count(RecipeID) AS count FROM recipes AS r join ingredientamount AS i ON r.id = i.RecipeID where i.IngredientID IN (";
 
         for (int i = 0; i < selected.size(); i++) {
             if(i!=0){
@@ -92,7 +92,7 @@ public class ChooseIngredientsController implements Initializable{
             }
             query = query + selected.get(i);
         }
-        query=query+")";
+        query=query+") GROUP BY RecipeID";
         return query;
     }
 

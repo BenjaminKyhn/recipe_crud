@@ -57,8 +57,10 @@ public class DBController {
             rs = st.executeQuery(query);
             Recipe recipe;
             while(rs.next()) {
-                recipe = new Recipe(rs.getInt("Id"),rs.getString("Name"));
-                recipeList.add(recipe);
+                if (rs.getInt("count") == GUI.ChooseIngredientsController.selected.size()) {
+                    recipe = new Recipe(rs.getInt("Id"), rs.getString("Name"));
+                    recipeList.add(recipe);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

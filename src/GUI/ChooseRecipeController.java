@@ -65,6 +65,7 @@ public class ChooseRecipeController implements Initializable {
     }
 
     public void backButton() throws Exception {
+        ChooseIngredientsController.selected.clear();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
         Stage showIngredients = fxmlLoader.load();
         Stage stage = (Stage) showIngredients.getScene().getWindow();
