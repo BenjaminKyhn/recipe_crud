@@ -67,7 +67,7 @@ public class ChooseRecipeController implements Initializable {
     public Connection getConnection() {
         Connection conn;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/idealfood?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "CodeWarrior8");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/idealfood?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
             return conn;
         }
         catch (Exception e){
@@ -80,7 +80,7 @@ public class ChooseRecipeController implements Initializable {
         ChooseIngredientsController chooseIngredientsController = new ChooseIngredientsController();
         ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
         Connection connection = getConnection();
-        String query = chooseIngredientsController.chooseIngredients();
+        String query = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = 1";
         Statement st;
         ResultSet rs;
 
