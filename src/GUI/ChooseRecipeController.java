@@ -77,17 +77,6 @@ public class ChooseRecipeController implements Initializable {
         showIngredients.show();
     }
 
-   // public void changeSceneToShowRecipe() throws Exception {
-
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/showRecipe.fxml"));
-//        AnchorPane showRecipe = fxmlLoader.load();
-//        Stage stage = (Stage) showRecipeButton.getScene().getWindow();
-//        stage.close();
-//        showRecipe.initModality(Modality.APPLICATION_MODAL);
-//        showRecipe.show();
-//
-//  }
-
     public void changeSceneToShowRecipe () throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/showRecipe.fxml"));
         AnchorPane anchorPane = fxmlLoader.load();
