@@ -16,11 +16,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChooseIngredientsController implements Initializable{
     public ObservableList<Ingredient> chosenIngredients = FXCollections.observableArrayList();
     Ingredient chosenIngredient;
+    ObservableList<Ingredient> list;
+    static ArrayList<Integer> selected = new ArrayList<>();
 
     @FXML
     private Button closeButton;
@@ -61,7 +64,7 @@ public class ChooseIngredientsController implements Initializable{
 
 
     public void showIngredients() {
-        ObservableList<Ingredient> list = dbController.getIngredientsList();
+        list = dbController.getIngredientsList();
 
         idColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,String>("name"));
@@ -69,7 +72,7 @@ public class ChooseIngredientsController implements Initializable{
         proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("protein"));
         fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("fat"));
         carbohydratesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("carbohydrates"));
-        selectColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, CheckBox>("select"));
+        selectColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,CheckBox>("select"));
 
         TableView.setItems(list);
     }
@@ -80,15 +83,17 @@ public class ChooseIngredientsController implements Initializable{
 //        boolean isSelected = chosenIngredient2.getSelect().isSelected();
 //        chosenIngredient = TableView.getSelectionModel().getSelectedItem();
 //
-        String qeury = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = 17";
+//        String qeury = "SELECT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID = " + selected;
+        String query = "SELECT DISTINCT r.id, r.name FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID WHERE i.IngredientID IN (";
 
-//        for (int i = 0; i < chosenIngredients.size(); i++) {
-//            if(i!=0){
-//                query=query+" AND name='";
-//            }
-//            query = query + chosenIngredients.get(i).getName()+"'";
-//        }
-        return qeury;
+        for (int i = 0; i < selected.size(); i++) {
+            if(i!=0){
+                query=query+",";
+            }
+            query = query + selected.get(i);
+        }
+        query=query+")";
+        return query;
     }
 
     @FXML
@@ -98,12 +103,28 @@ public class ChooseIngredientsController implements Initializable{
     }
 
     public void changeSceneToShowRecipes() throws Exception {
-        chosenIngredient = TableView.getSelectionModel().getSelectedItem();
+
+        for (int i = 0; i < list.size(); i++) {
+            if (selectColumn.getCellObservableValue(i).getValue().isSelected()) {
+                selected.add(i+1);
+            }
+        }
+//        if (list.get(0).getSelect().isSelected()) {
+//            chosenIngredient = list.get(0);
+//        }
+//            System.out.println(chosenIngredient);
+//        chooseIngredients();
+        //        chooseIngredients();
+//        for (int i = 0; i < TableView.getItems().size(); i++) {
+//            if (TableView.getItems().get(i).getSelect())
+//                chosenIngredient = TableView.getItems.get(i);
+//        }
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseRecipe.fxml"));
         Stage showRecipe = fxmlLoader.load();
         Stage stage = (Stage) showRecipesButton.getScene().getWindow();
         stage.close();
         showRecipe.initModality(Modality.APPLICATION_MODAL);
         showRecipe.show();
+
     }
 }

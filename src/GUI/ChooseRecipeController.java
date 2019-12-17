@@ -46,7 +46,7 @@ public class ChooseRecipeController implements Initializable {
     private TableColumn<Ingredient, Double> carbohydratesColumn;
 
     @FXML
-    private TableColumn<CheckBox, Boolean> selectColumn;
+    private TableColumn<Ingredient, CheckBox> selectColumn;
 
     DBController dbController = new DBController();
 
@@ -54,8 +54,6 @@ public class ChooseRecipeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         showRecipes();
     }
-
-
 
     public void showRecipes() {
         ObservableList<Recipe> list = dbController.getRecipesList();
@@ -73,7 +71,5 @@ public class ChooseRecipeController implements Initializable {
         stage.close();
         showIngredients.initModality(Modality.APPLICATION_MODAL);
         showIngredients.show();
-
-
     }
 }
