@@ -67,6 +67,8 @@ public class ListOfIngredientsController implements Initializable {
 
     @FXML
     private void insertButton() {
+        String query = "insert into ingredients values("+idField.getText()+",'"+nameField.getText()+"','"+caloriesField.getText()+"',"+proteinField.getText()+","+fatField.getText()+","+carbohydratesField.getText()+")";
+        executeQuery(query);
         showIngredients();
     }
 
