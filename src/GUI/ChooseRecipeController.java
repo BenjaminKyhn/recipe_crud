@@ -72,4 +72,5 @@ public class ChooseRecipeController implements Initializable {
         showIngredients.initModality(Modality.APPLICATION_MODAL);
         showIngredients.show();
     }
+
 }
