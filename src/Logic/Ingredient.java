@@ -1,4 +1,4 @@
-package Persistence;
+package Logic;
 
 import javafx.scene.control.CheckBox;
 

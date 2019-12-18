@@ -1,8 +1,7 @@
 package GUI;
 
 import Persistence.DBController;
-import Persistence.Ingredient;
-import javafx.collections.FXCollections;
+import Logic.Ingredient;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

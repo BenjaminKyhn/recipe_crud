@@ -1,12 +1,11 @@
 package GUI;
 
 import Persistence.DBController;
-import Persistence.Ingredient;
+import Logic.Ingredient;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,6 +17,10 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class ListOfIngredientsController implements Initializable {
+
+    DBController dbController = new DBController();
+
+
     @FXML
     private Button closeButton;
 
@@ -60,27 +63,39 @@ public class ListOfIngredientsController implements Initializable {
     @FXML
     private TableColumn<Ingredient, Double> carbohydratesColumn;
 
-    DBController dbController = new DBController();
-
     @FXML
     private void insertButton() {
+        insert();
+        showIngredients();
+    }
+
+    public void insert() {
         String query = "insert into ingredients values("+idField.getText()+",'"+nameField.getText()+"','"+caloriesField.getText()+"',"+proteinField.getText()+","+fatField.getText()+","+carbohydratesField.getText()+")";
         executeQuery(query);
-        showIngredients();
     }
 
     @FXML
     private void closeButton() {
+        close();
+    }
+
+    private void close() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
+
     @FXML
     private void deleteButton() {
-        String query = "DELETE FROM ingredients WHERE ID="+idField.getText()+"";
-        executeQuery(query);
+        delete();
         showIngredients();
     }
+
+    private void delete() {
+        String query = "DELETE FROM ingredients WHERE ID="+idField.getText()+"";
+        executeQuery(query);
+    }
+
 
     public void executeQuery(String query) {
         Connection conn = dbController.getConnection();

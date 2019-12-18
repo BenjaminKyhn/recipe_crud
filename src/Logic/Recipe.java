@@ -1,4 +1,4 @@
-package Persistence;
+package Logic;
 
 import java.util.ArrayList;
 
@@ -11,12 +11,12 @@ public class Recipe {
 
     public Recipe(){}
 
+    public Recipe(int id, String name, ArrayList<Ingredient> ingredients){};
+
     public Recipe(int id, String name){
         this.id = id;
         this.name = name;
     }
-
-    public Recipe(int id, String name, ArrayList<Ingredient> ingredients){};
 
     public int getId() {
         return id;
@@ -34,7 +34,7 @@ public class Recipe {
         this.name = name;
     }
 
-    public ArrayList<Ingredient> getIngredients() {
+    /*public ArrayList<Ingredient> getIngredients() {
         return ingredients;
     }
 
@@ -57,4 +57,5 @@ public class Recipe {
     public void setPortionCount(int portionCount) {
         this.portionCount = portionCount;
     }
+     */
 }
