@@ -89,14 +89,13 @@ public class DBController {
     public ArrayList<String> getIngredientsForRecipe() {
         ArrayList<String> ingredientsList = new ArrayList<>();
         Connection connection = getConnection();
-        String query = "SELECT IngredientID FROM ingredientamount WHERE RecipeID=1";
-        String query2 = "SELECT name FROM ingredients JOIN ingredientamount ON ingredientamount.IngredientID = ingredients.id WHERE RecipeID=1";
+        String query = "SELECT name FROM ingredients JOIN ingredientamount ON ingredientamount.IngredientID = ingredients.id WHERE RecipeID=1";
         Statement st;
         ResultSet rs;
 
         try {
             st = connection.createStatement();
-            rs = st.executeQuery(query2);
+            rs = st.executeQuery(query);
             while (rs.next()) {
                 ingredientsList.add(rs.getString("name"));
             }
@@ -104,5 +103,24 @@ public class DBController {
             e.printStackTrace();
         }
         return ingredientsList;
+    }
+
+    public String getStepByStepForRecipe() {
+        String stepByStep = "";
+        Connection connection = getConnection();
+        String query = "SELECT howto FROM recipes WHERE recipes.id=1";
+        Statement st;
+        ResultSet rs;
+
+        try {
+            st = connection.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+                stepByStep = rs.getString("howto");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return stepByStep;
     }
 }
