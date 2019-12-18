@@ -125,4 +125,25 @@ public class DBController {
         }
         return stepByStep;
     }
+
+    public String getUrlForRecipe() {
+        String recipeImageUrl = "";
+        Connection connection = getConnection();
+        String query = "SELECT images FROM recipes WHERE ID=1";
+        Statement st;
+        ResultSet rs;
+
+        try {
+            st = connection.createStatement();
+            rs = st.executeQuery(query);
+
+            while (rs.next()){
+                recipeImageUrl = rs.getString("images");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return recipeImageUrl;
+    }
 }
