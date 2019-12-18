@@ -16,14 +16,13 @@ public class DBController {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost/idealfood?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "CodeWarrior8");
             return conn;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public ObservableList<Ingredient> getIngredientsList(){
+    public ObservableList<Ingredient> getIngredientsList() {
         ObservableList<Ingredient> ingredientsList = FXCollections.observableArrayList();
         Connection connection = getConnection();
         String query = "SELECT * FROM ingredients";
@@ -34,8 +33,8 @@ public class DBController {
             st = connection.createStatement();
             rs = st.executeQuery(query);
             Ingredient ingredient;
-            while(rs.next()) {
-                ingredient = new Ingredient(rs.getInt("Id"),rs.getString("Name"),rs.getDouble("Calories"),rs.getDouble("Protein"),rs.getDouble("Fat"),rs.getDouble("Carbohydrates"));
+            while (rs.next()) {
+                ingredient = new Ingredient(rs.getInt("Id"), rs.getString("Name"), rs.getDouble("Calories"), rs.getDouble("Protein"), rs.getDouble("Fat"), rs.getDouble("Carbohydrates"));
                 ingredientsList.add(ingredient);
             }
         } catch (Exception e) {
@@ -44,7 +43,7 @@ public class DBController {
         return ingredientsList;
     }
 
-    public ObservableList<Recipe> getRecipesList(){
+    public ObservableList<Recipe> getRecipesList() {
         ChooseIngredientsController chooseIngredientsController = new ChooseIngredientsController();
         ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
         Connection connection = getConnection();
@@ -56,7 +55,7 @@ public class DBController {
             st = connection.createStatement();
             rs = st.executeQuery(query);
             Recipe recipe;
-            while(rs.next()) {
+            while (rs.next()) {
                 if (rs.getInt("count") == GUI.ChooseIngredientsController.selected.size()) {
                     recipe = new Recipe(rs.getInt("Id"), rs.getString("Name"));
                     recipeList.add(recipe);
@@ -68,4 +67,24 @@ public class DBController {
         return recipeList;
     }
 
+    public void executeQuery(String query) {
+        DBController dbController = new DBController();
+        Connection conn = dbController.getConnection();
+        Statement st;
+        try {
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showChosenRecipe() {
+        DBController dbController = new DBController();
+        String stepByStepGuide = "";
+        Connection connection = getConnection();
+        String query = "SELECT howto FROM recipes WHERE id = 1";
+
+       dbController.executeQuery(query);
+    }
 }
