@@ -16,6 +16,12 @@ public class Ingredient {
     public Ingredient() {
     }
 
+    public Ingredient(int id, double amount, String unit){
+        this.id = id;
+        this.amount = amount;
+        this.unit = unit;
+    }
+
     public Ingredient(int id){
         this.id = id;
     }

@@ -78,7 +78,7 @@ public class ChooseIngredientsController implements Initializable{
 
     // Method for creating the sql qeury
     public String chooseIngredients(){
-        String query = "SELECT DISTINCT r.id, r.name, count(RecipeID) AS count FROM recipes AS r join ingredientamount AS i ON r.id = i.RecipeID where i.IngredientID IN (";
+        String query = "SELECT DISTINCT r.id, r.name, count(RecipeID) AS count FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID where i.IngredientID IN (";
 
         for (int i = 0; i < selected.size(); i++) {
             if(i!=0){

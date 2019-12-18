@@ -25,7 +25,7 @@
       <Line endX="200.5999755859375" layoutX="705.0" layoutY="135.0" startX="-92.20001220703125" />
       <Line endX="203.4000244140625" layoutX="115.0" layoutY="105.0" startX="-100.0" />
       <TextArea layoutX="334.0" layoutY="153.0" prefHeight="494.0" prefWidth="256.0" />
-      <TextArea fx:id="howToArea" layoutX="604.0" layoutY="153.0" prefHeight="494.0" prefWidth="304.0" />
+      <TextArea layoutX="604.0" layoutY="153.0" prefHeight="494.0" prefWidth="304.0" />
       <Line endX="200.5999755859375" layoutX="705.0" layoutY="105.0" startX="-92.20001220703125" />
       <Line endX="153.20001220703125" layoutX="434.0" layoutY="134.0" startX="-98.00003051757812" />
       <Line endX="155.0" layoutX="433.0" layoutY="105.0" startX="-98.00003051757812" />
@@ -34,7 +34,7 @@
             <Image url="https://i.imgur.com/KGyHPQg.png" />
          </image>
       </ImageView>
-      <Label layoutX="106.0" layoutY="106.0" text="Light &amp; Licious">
+      <Label fx:id="titleText" layoutX="106.0" layoutY="106.0" text="Light &amp; Licious">
          <font>
             <Font name="Calibri Bold" size="20.0" />
          </font>

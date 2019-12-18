@@ -92,6 +92,7 @@ public class ListOfIngredientsController implements Initializable {
             e.printStackTrace();
         }
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showIngredients();
