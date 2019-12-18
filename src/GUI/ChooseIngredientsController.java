@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 public class ChooseIngredientsController implements Initializable{
     ObservableList<Ingredient> list;
-    static public ArrayList<Integer> selected = new ArrayList<>();
+    static public ArrayList<Integer> selectedIngredients = new ArrayList<>();
 
     @FXML
     private Button closeButton;
@@ -79,11 +79,11 @@ public class ChooseIngredientsController implements Initializable{
     public String chooseIngredients(){
         String query = "SELECT DISTINCT r.id, r.name, count(RecipeID) AS count FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID where i.IngredientID IN (";
 
-        for (int i = 0; i < selected.size(); i++) {
+        for (int i = 0; i < selectedIngredients.size(); i++) {
             if(i!=0){
                 query=query+",";
             }
-            query = query + selected.get(i);
+            query = query + selectedIngredients.get(i);
         }
         query=query+") GROUP BY RecipeID";
         return query;
@@ -102,7 +102,7 @@ public class ChooseIngredientsController implements Initializable{
     public void getSelected() {
         for (int i = 0; i < list.size(); i++) {
             if (selectColumn.getCellObservableValue(i).getValue().isSelected()) {
-                selected.add(i+1);
+                selectedIngredients.add(i+1);
             }
         }
     }
@@ -114,7 +114,7 @@ public class ChooseIngredientsController implements Initializable{
         Stage stage = (Stage) showRecipesButton.getScene().getWindow();
         showAllRecipes.setOnCloseRequest(new EventHandler<WindowEvent>() {
             public void handle(WindowEvent we) {
-                selected.clear();
+                selectedIngredients.clear();
             }
         });
         stage.close();

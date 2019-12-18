@@ -71,7 +71,7 @@ public class ChooseRecipeController implements Initializable {
     }
 
     public void back() throws IOException {
-        ChooseIngredientsController.selected.clear();
+        ChooseIngredientsController.selectedIngredients.clear();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
         Stage showIngredients = fxmlLoader.load();
         Stage stage = (Stage) backButton.getScene().getWindow();
