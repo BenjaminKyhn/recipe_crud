@@ -14,7 +14,7 @@ public class DBController {
     public Connection getConnection() {
         Connection conn;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/idealfood?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "CodeWarrior8");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/idealfood?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
             return conn;
         }
         catch (Exception e){
@@ -35,7 +35,7 @@ public class DBController {
             rs = st.executeQuery(query);
             Ingredient ingredient;
             while(rs.next()) {
-                ingredient = new Ingredient(rs.getInt("Id"),rs.getString("Name"),rs.getDouble("Calories"),rs.getDouble("Protein"),rs.getDouble("Fat"),rs.getDouble("Carbohydrates"));
+                ingredient = new Ingredient(rs.getInt("Id"),rs.getString("Name"),rs.getDouble("Calories"),rs.getDouble("Protein"),rs.getDouble("Fat"),rs.getDouble("carbohydrates"));
                 ingredientsList.add(ingredient);
             }
         } catch (Exception e) {

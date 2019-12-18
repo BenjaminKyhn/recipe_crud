@@ -4,6 +4,7 @@ import Persistence.DBController;
 import Persistence.Ingredient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -107,6 +109,11 @@ public class ChooseIngredientsController implements Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseRecipe.fxml"));
         Stage showAllRecipes = fxmlLoader.load();
         Stage stage = (Stage) showRecipesButton.getScene().getWindow();
+        showAllRecipes.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            public void handle(WindowEvent we) {
+                selected.clear();
+            }
+        });
         stage.close();
         showAllRecipes.initModality(Modality.APPLICATION_MODAL);
         showAllRecipes.show();
