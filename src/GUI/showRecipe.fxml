@@ -76,12 +76,19 @@
                   <Button layoutX="249.0" layoutY="567.0" mnemonicParsing="false" text="Button" />
                   <ScrollPane layoutX="335.0" layoutY="153.0" prefHeight="494.0" prefWidth="252.0">
                      <content>
-                        <Label fx:id="ingredientsText" alignment="TOP_LEFT" prefHeight="530.0" prefWidth="234.0" text="ingredients" />
+                        <Label fx:id="ingredientsText" alignment="TOP_LEFT" prefHeight="530.0" prefWidth="234.0" text="ingredients">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font></Label>
                      </content>
                   </ScrollPane>
                   <ScrollPane layoutX="612.0" layoutY="154.0" prefHeight="494.0" prefWidth="252.0">
                      <content>
-                        <Label fx:id="stepByStepText" alignment="TOP_LEFT" prefHeight="530.0" prefWidth="234.0" text="step by step" />
+                        <Label fx:id="stepByStepText" alignment="TOP_LEFT" prefHeight="570.0" prefWidth="235.0" text="Label">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </Label>
                      </content>
                   </ScrollPane>
                </children>

@@ -4,6 +4,7 @@ import Persistence.DBController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.net.URL;
@@ -48,6 +49,7 @@ public class ShowRecipeController implements Initializable {
 
         //Insert step by step guide for the recipe
         stepByStepText.setText(dbController.getStepByStepForRecipe());
+        stepByStepText.setWrapText(true);
 
         //Insert an image for the recipe
         Image image = new Image(dbController.getUrlForRecipe());
