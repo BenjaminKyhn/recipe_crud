@@ -1,6 +1,7 @@
 package Persistence;
 
 import GUI.ChooseIngredientsController;
+import GUI.ChooseRecipeController;
 import Logic.Ingredient;
 import Logic.Recipe;
 import javafx.collections.FXCollections;
@@ -68,9 +69,10 @@ public class DBController {
     }
 
     public String getRecipeName() {
+        ChooseRecipeController chooseRecipeController = new ChooseRecipeController();
         String recipeName = "";
         Connection connection = getConnection();
-        String query = "SELECT name FROM recipes WHERE ID=1";
+        String query = "SELECT name FROM recipes WHERE ID=" + chooseRecipeController.chooseRecipe();
         Statement st;
         ResultSet rs;
 
@@ -89,9 +91,10 @@ public class DBController {
     }
 
     public ArrayList<String> getIngredientsForRecipe() {
+        ChooseRecipeController chooseRecipeController = new ChooseRecipeController();
         ArrayList<String> ingredientsList = new ArrayList<>();
         Connection connection = getConnection();
-        String query = "SELECT name FROM ingredients JOIN ingredientamount ON ingredientamount.IngredientID = ingredients.id WHERE RecipeID=1";
+        String query = "SELECT name FROM ingredients JOIN ingredientamount ON ingredientamount.IngredientID = ingredients.id WHERE RecipeID=" + chooseRecipeController.chooseRecipe();
         Statement st;
         ResultSet rs;
 
@@ -108,9 +111,10 @@ public class DBController {
     }
 
     public String getStepByStepForRecipe() {
+        ChooseRecipeController chooseRecipeController = new ChooseRecipeController();
         String stepByStep = "";
         Connection connection = getConnection();
-        String query = "SELECT howto FROM recipes WHERE recipes.id=1";
+        String query = "SELECT howto FROM recipes WHERE recipes.id="+ chooseRecipeController.chooseRecipe();
         Statement st;
         ResultSet rs;
 
@@ -127,9 +131,10 @@ public class DBController {
     }
 
     public String getUrlForRecipe() {
+        ChooseRecipeController chooseRecipeController = new ChooseRecipeController();
         String recipeImageUrl = "";
         Connection connection = getConnection();
-        String query = "SELECT images FROM recipes WHERE ID=1";
+        String query = "SELECT images FROM recipes WHERE ID=" + chooseRecipeController.chooseRecipe();
         Statement st;
         ResultSet rs;
 

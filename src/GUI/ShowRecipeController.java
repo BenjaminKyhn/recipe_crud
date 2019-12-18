@@ -32,6 +32,10 @@ public class ShowRecipeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        getSelectedRecipe();
+    }
+
+    public void getSelectedRecipe(){
         //Insert title for the recipe
         titleText.setText(dbController.getRecipeName());
 
@@ -49,9 +53,5 @@ public class ShowRecipeController implements Initializable {
         Image image = new Image(dbController.getUrlForRecipe());
         recipeImage.setImage(image);
         System.out.println(dbController.getUrlForRecipe());
-    }
-
-    public void getSelectedRecipe(){
-
     }
 }

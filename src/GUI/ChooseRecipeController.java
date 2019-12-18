@@ -80,7 +80,6 @@ public class ChooseRecipeController implements Initializable {
 //        TableColumn tableColumn = tablePosition.getTableColumn();
 //        Object data = tableColumn.getCellObservableValue(item).getValue();
         selectedRecipe = item;
-        System.out.println(chooseRecipe());
     }
 
     public void backButton() throws Exception {
