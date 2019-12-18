@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.stage.Stage?>
 
-<Stage xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowRecipeController">
+<Stage fx:id="showRecipeStage" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowRecipeController">
    <scene>
       <Scene>
          <root>
@@ -22,11 +22,7 @@
                         <Image url="https://i.imgur.com/KfSdfwo.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="225.0" fitWidth="305.0" layoutX="13.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="https://i.imgur.com/JN4veXs.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="recipeImage" fitHeight="225.0" fitWidth="305.0" layoutX="13.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true" />
                   <Line endX="203.4000244140625" layoutX="115.0" layoutY="135.0" startX="-100.0" />
                   <Line endX="200.5999755859375" layoutX="705.0" layoutY="135.0" startX="-92.20001220703125" />
                   <Line endX="203.4000244140625" layoutX="115.0" layoutY="105.0" startX="-100.0" />
