@@ -91,6 +91,10 @@ public class ChooseIngredientsController implements Initializable{
 
     @FXML
     private void closeButton() {
+        close();
+    }
+
+    public void close() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }

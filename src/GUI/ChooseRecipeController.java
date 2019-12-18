@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -66,6 +67,10 @@ public class ChooseRecipeController implements Initializable {
     }
 
     public void backButton() throws Exception {
+        back();
+    }
+
+    public void back() throws IOException {
         ChooseIngredientsController.selected.clear();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
         Stage showIngredients = fxmlLoader.load();
@@ -73,6 +78,7 @@ public class ChooseRecipeController implements Initializable {
         stage.close();
         showIngredients.initModality(Modality.APPLICATION_MODAL);
         showIngredients.show();
+
     }
 
     public void changeSceneToShowRecipe () throws Exception {

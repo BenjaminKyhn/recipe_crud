@@ -22,7 +22,7 @@
                         <Image url="https://i.imgur.com/KGyHPQg.png" />
                     </image>
                 </ImageView>
-               <Button fx:id="storeIngredient" layoutX="482.0" layoutY="508.0" mnemonicParsing="false" onAction="#popupStoreIngredient" prefHeight="63.0" prefWidth="238.0" text="STORE INGREDIENT">
+               <Button fx:id="storeIngredient" layoutX="482.0" layoutY="508.0" mnemonicParsing="false" onAction="#popupListOfIngredients" prefHeight="63.0" prefWidth="238.0" text="STORE INGREDIENT">
                   <font>
                      <Font name="Calibri Bold" size="22.0" />
                   </font>
