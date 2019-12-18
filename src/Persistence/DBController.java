@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class DBController {
 
+    //Method for establishing connection to the database
     public Connection getConnection() {
         Connection conn;
         try {
@@ -23,6 +24,7 @@ public class DBController {
         }
     }
 
+    //Method for creating a list of ingredients
     public ObservableList<Ingredient> getIngredientsList() {
         ObservableList<Ingredient> ingredientsList = FXCollections.observableArrayList();
         Connection connection = getConnection();
@@ -44,11 +46,12 @@ public class DBController {
         return ingredientsList;
     }
 
+    //Method for creating a list of recipes
     public ObservableList<Recipe> getRecipesList() {
         ChooseIngredientsController chooseIngredientsController = new ChooseIngredientsController();
         ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
         Connection connection = getConnection();
-        String query = chooseIngredientsController.chooseIngredients();
+        String query = chooseIngredientsController.matchIngredientsToRecipes();
         Statement st;
         ResultSet rs;
 
@@ -68,6 +71,7 @@ public class DBController {
         return recipeList;
     }
 
+    //Method for returning the name of a recipe
     public String getRecipeName() {
         ChooseRecipeController chooseRecipeController = new ChooseRecipeController();
         String recipeName = "";
@@ -90,6 +94,7 @@ public class DBController {
         return recipeName;
     }
 
+    //Method for returning the ingredients for a recipe
     public ArrayList<String> getIngredientsForRecipe() {
         ChooseRecipeController chooseRecipeController = new ChooseRecipeController();
         ArrayList<String> ingredientsList = new ArrayList<>();
@@ -110,6 +115,7 @@ public class DBController {
         return ingredientsList;
     }
 
+    //Method for returning the step by step guide to a recipe
     public String getStepByStepForRecipe() {
         ChooseRecipeController chooseRecipeController = new ChooseRecipeController();
         String stepByStep = "";
@@ -130,6 +136,7 @@ public class DBController {
         return stepByStep;
     }
 
+    //Method for returning the URL for the image of a recipe
     public String getUrlForRecipe() {
         ChooseRecipeController chooseRecipeController = new ChooseRecipeController();
         String recipeImageUrl = "";

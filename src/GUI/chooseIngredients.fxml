@@ -31,7 +31,7 @@
                      <Font name="Calibri Bold" size="20.0" />
                   </font>
                </Text>
-               <Button fx:id="showRecipesButton" layoutX="84.0" layoutY="521.0" mnemonicParsing="false" onAction="#changeSceneToShowRecipes" text="SHOW RECIPES">
+               <Button fx:id="showRecipesButton" layoutX="84.0" layoutY="521.0" mnemonicParsing="false" onAction="#changeSceneToShowAllRecipes" text="SHOW RECIPES">
                   <font>
                      <Font name="Calibri Bold" size="14.0" />
                   </font>

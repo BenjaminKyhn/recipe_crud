@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,6 +60,7 @@ public class ChooseRecipeController implements Initializable {
         showRecipes();
     }
 
+    //Method for showing the recipes, by matching the chosen Ingredients
     public void showRecipes() {
         ObservableList<Recipe> list = dbController.getRecipesList();
 
@@ -68,21 +70,25 @@ public class ChooseRecipeController implements Initializable {
         TableView.setItems(list);
     }
 
-    public int chooseRecipe(){
+    //Method for returning the ID of the selected recipe
+    public int chooseRecipe() {
         return selectedRecipe.getId();
     }
 
-    public void clickedColumn (MouseEvent event){
+    //Method that returns the users selected recipe
+    public void clickedColumn(MouseEvent event) {
         TablePosition tablePosition = TableView.getSelectionModel().getSelectedCells().get(0);
         int row = tablePosition.getRow();
-        Recipe item=TableView.getItems().get(row);
+        Recipe item = TableView.getItems().get(row);
         selectedRecipe = item;
     }
 
+    //Method for the back button
     public void backButton() throws Exception {
         back();
     }
 
+    //Method for changing stage to previous stage
     public void back() throws IOException {
         ChooseIngredientsController.selectedIngredients.clear();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseIngredients.fxml"));
@@ -94,7 +100,8 @@ public class ChooseRecipeController implements Initializable {
 
     }
 
-    public void changeSceneToShowRecipe () throws Exception {
+    //Method for changing scene to showRecipe
+    public void changeSceneToShowRecipe() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/showRecipe.fxml"));
         Stage stage = fxmlLoader.load();
         stage.initModality(Modality.APPLICATION_MODAL);

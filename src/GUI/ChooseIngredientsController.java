@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ChooseIngredientsController implements Initializable{
+public class ChooseIngredientsController implements Initializable {
     ObservableList<Ingredient> list;
     public static ArrayList<Integer> selectedIngredients = new ArrayList<>();
 
@@ -56,36 +56,38 @@ public class ChooseIngredientsController implements Initializable{
 
     DBController dbController = new DBController();
 
+    // Starts when the program is run
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showIngredients();
     }
 
+    //Fills columns, with values
     public void showIngredients() {
         list = dbController.getIngredientsList();
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Integer>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,String>("name"));
-        caloriesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("calories"));
-        proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("protein"));
-        fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("fat"));
-        carbohydratesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,Double>("carbohydrates"));
-        selectColumn.setCellValueFactory(new PropertyValueFactory<Ingredient,CheckBox>("select"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, Integer>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, String>("name"));
+        caloriesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, Double>("calories"));
+        proteinColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, Double>("protein"));
+        fatColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, Double>("fat"));
+        carbohydratesColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, Double>("carbohydrates"));
+        selectColumn.setCellValueFactory(new PropertyValueFactory<Ingredient, CheckBox>("select"));
 
         TableView.setItems(list);
     }
 
-    // Method for creating the sql qeury
-    public String chooseIngredients(){
+    // Method for creating the sql query
+    public String matchIngredientsToRecipes() {
         String query = "SELECT DISTINCT r.id, r.name, count(RecipeID) AS count FROM recipes AS r JOIN ingredientamount AS i ON r.id = i.RecipeID where i.IngredientID IN (";
 
         for (int i = 0; i < selectedIngredients.size(); i++) {
-            if(i!=0){
-                query=query+",";
+            if (i != 0) {
+                query = query + ",";
             }
             query = query + selectedIngredients.get(i);
         }
-        query=query+") GROUP BY RecipeID";
+        query = query + ") GROUP BY RecipeID";
         return query;
     }
 
@@ -94,20 +96,23 @@ public class ChooseIngredientsController implements Initializable{
         close();
     }
 
+    //Method for closing the stage
     public void close() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
+    //Method for selecting rows
     public void getSelected() {
         for (int i = 0; i < list.size(); i++) {
             if (selectColumn.getCellObservableValue(i).getValue().isSelected()) {
-                selectedIngredients.add(i+1);
+                selectedIngredients.add(i + 1);
             }
         }
     }
 
-    public void changeSceneToShowRecipes() throws Exception {
+    //Change scene to show matching recipes
+    public void changeSceneToShowAllRecipes() throws Exception {
         getSelected();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/chooseRecipe.fxml"));
         Stage showAllRecipes = fxmlLoader.load();
@@ -120,6 +125,5 @@ public class ChooseIngredientsController implements Initializable{
         stage.close();
         showAllRecipes.initModality(Modality.APPLICATION_MODAL);
         showAllRecipes.show();
-
     }
 }
