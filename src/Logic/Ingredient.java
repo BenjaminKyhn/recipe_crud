@@ -13,27 +13,6 @@ public class Ingredient {
     private double carbohydrates = 0.0;
     private CheckBox select;
 
-    public Ingredient() {
-    }
-
-    public Ingredient(int id, double amount, String unit){
-        this.id = id;
-        this.amount = amount;
-        this.unit = unit;
-    }
-
-    public Ingredient(int id){
-        this.id = id;
-    }
-
-    public Ingredient(int id, String name, double calories, double protein, double fat){
-        this.id = id;
-        this.name = name;
-        this.calories = calories;
-        this.protein = protein;
-        this.fat = fat;
-    }
-
     public Ingredient(int id, String name, double calories, double protein, double fat, double carbohydrates) {
         this.id = id;
         this.name = name;
@@ -42,15 +21,6 @@ public class Ingredient {
         this.fat = fat;
         this.carbohydrates = carbohydrates;
         this.select = new CheckBox();
-    }
-
-    public void specifyIngredient(String name) {
-        this.id = id;
-        this.name = name;
-        this.calories = calories;
-        this.protein = protein;
-        this.fat = fat;
-        this.carbohydrates = carbohydrates;
     }
 
     public int getId() {
@@ -87,10 +57,6 @@ public class Ingredient {
 
     public CheckBox getSelect() {
         return select;
-    }
-
-    public void setSelect(CheckBox select) {
-        
     }
 
     @Override

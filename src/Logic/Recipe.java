@@ -5,13 +5,8 @@ import java.util.ArrayList;
 public class Recipe {
     int id;
     String name;
-    ArrayList<Ingredient> ingredients;
-    ArrayList<Double> portionSize;
-    int portionCount = 1;
 
     public Recipe(){}
-
-    public Recipe(int id, String name, ArrayList<Ingredient> ingredients){};
 
     public Recipe(int id, String name){
         this.id = id;
@@ -34,28 +29,4 @@ public class Recipe {
         this.name = name;
     }
 
-    /*public ArrayList<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(ArrayList<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public ArrayList<Double> getPortionSize() {
-        return portionSize;
-    }
-
-    public void setPortionSize(ArrayList<Double> portionSize) {
-        this.portionSize = portionSize;
-    }
-
-    public int getPortionCount() {
-        return portionCount;
-    }
-
-    public void setPortionCount(int portionCount) {
-        this.portionCount = portionCount;
-    }
-     */
 }
