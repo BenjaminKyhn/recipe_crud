@@ -15,7 +15,7 @@ public class StartController {
         popUp.show();
     }
 
-    public void popupStoreIngredient (javafx.event.ActionEvent actionEvent) throws Exception {
+    public void popupListOfIngredients(javafx.event.ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/listofingredients.fxml"));
         AnchorPane anchorPane = fxmlLoader.load();
         Scene scene = new Scene(anchorPane);
