@@ -76,8 +76,6 @@ public class ChooseRecipeController implements Initializable {
         TablePosition tablePosition = TableView.getSelectionModel().getSelectedCells().get(0);
         int row = tablePosition.getRow();
         Recipe item=TableView.getItems().get(row);
-//        TableColumn tableColumn = tablePosition.getTableColumn();
-//        Object data = tableColumn.getCellObservableValue(item).getValue();
         selectedRecipe = item;
     }
 
