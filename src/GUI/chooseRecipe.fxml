@@ -41,7 +41,7 @@
                      <Font name="Calibri Bold" size="16.0" />
                   </font>
                </Button>
-               <TableView fx:id="TableView" layoutX="17.0" layoutY="86.0" prefHeight="372.0" prefWidth="353.0">
+               <TableView fx:id="TableView" layoutX="17.0" layoutY="86.0" onMouseClicked="#clickedColumn" prefHeight="372.0" prefWidth="353.0">
                  <columns>
                      <TableColumn fx:id="idColumn" prefWidth="96.00000381469727" text="ID" />
                    <TableColumn fx:id="nameColumn" prefWidth="257.59996032714844" text="Name" />

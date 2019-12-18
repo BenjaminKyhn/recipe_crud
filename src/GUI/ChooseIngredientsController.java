@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 public class ChooseIngredientsController implements Initializable{
     ObservableList<Ingredient> list;
-    static public ArrayList<Integer> selectedIngredients = new ArrayList<>();
+    public static ArrayList<Integer> selectedIngredients = new ArrayList<>();
 
     @FXML
     private Button closeButton;

@@ -10,15 +10,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChooseRecipeController implements Initializable {
+    public static Recipe selectedRecipe = new Recipe();
 
     @FXML
     private javafx.scene.control.TableView<Recipe> TableView;
@@ -64,6 +67,20 @@ public class ChooseRecipeController implements Initializable {
         nameColumn.setCellValueFactory(new PropertyValueFactory<Recipe, String>("name"));
 
         TableView.setItems(list);
+    }
+
+    public int chooseRecipe(){
+        return selectedRecipe.getId();
+    }
+
+    public void clickedColumn (MouseEvent event){
+        TablePosition tablePosition = TableView.getSelectionModel().getSelectedCells().get(0);
+        int row = tablePosition.getRow();
+        Recipe item=TableView.getItems().get(row);
+//        TableColumn tableColumn = tablePosition.getTableColumn();
+//        Object data = tableColumn.getCellObservableValue(item).getValue();
+        selectedRecipe = item;
+        System.out.println(chooseRecipe());
     }
 
     public void backButton() throws Exception {

@@ -50,4 +50,8 @@ public class ShowRecipeController implements Initializable {
         recipeImage.setImage(image);
         System.out.println(dbController.getUrlForRecipe());
     }
+
+    public void getSelectedRecipe(){
+
+    }
 }
