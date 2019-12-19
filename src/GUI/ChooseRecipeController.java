@@ -33,25 +33,7 @@ public class ChooseRecipeController implements Initializable {
     private TableColumn<Recipe, String> nameColumn;
 
     @FXML
-    private TableColumn<Ingredient, Double> caloriesColumn;
-
-    @FXML
-    private TableColumn<Ingredient, Double> proteinColumn;
-
-    @FXML
-    private TableColumn<Ingredient, Double> fatColumn;
-
-    @FXML
-    private TableColumn<Ingredient, Double> carbohydratesColumn;
-
-    @FXML
-    private TableColumn<Ingredient, CheckBox> selectColumn;
-
-    @FXML
     private Button backButton;
-
-    @FXML
-    private Button showRecipeButton;
 
     DBController dbController = new DBController();
 
